@@ -18,7 +18,7 @@ namespace TicketsAndMerch.Infrastructure.Repositories
         public async Task<IEnumerable<Payment>> GetAllPaymentsAsync()
         {
             var payments = await _context.Payments
-                .Include(p => p.Order) // Incluye info del pedido relacionado
+                .Include(p => p.Order) 
                 .ToListAsync();
 
             return payments;

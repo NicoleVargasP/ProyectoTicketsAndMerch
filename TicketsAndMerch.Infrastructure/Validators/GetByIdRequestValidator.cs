@@ -16,7 +16,7 @@ namespace TicketsAndMerch.Infrastructure.Validators
 
         private bool BeAValidIdFormat(int id)
         {
-            // Validaciones adicionales para el formato del ID
+            
             return id.ToString().Length <= 7; // Máximo 7 dígitos
         }
     }

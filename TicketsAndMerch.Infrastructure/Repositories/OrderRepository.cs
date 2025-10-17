@@ -18,9 +18,9 @@ namespace TicketsAndMerch.Infrastructure.Repositories
         public async Task<IEnumerable<Order>> GetAllOrdersAsync()
         {
             var orders = await _context.Orders
-                .Include(o => o.User)    // Incluye info del usuario
-                .Include(o => o.Merch)   // Incluye info del merch (si tiene)
-                .Include(o => o.Ticket)  // Incluye info del ticket (si tiene)
+                .Include(o => o.User)    
+                .Include(o => o.Merch)   
+                .Include(o => o.Ticket)  
                 .ToListAsync();
 
             return orders;

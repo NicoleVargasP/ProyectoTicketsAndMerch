@@ -27,9 +27,6 @@ namespace TicketsAndMerch.Api.Controllers
 
         #region Dto Mapper
 
-        // --------------------------------------------------------------
-        // Obtener todos los merch (usando DTO + Mapper)
-        // --------------------------------------------------------------
         [HttpGet("dto/mapper")]
         public async Task<IActionResult> GetAllMerchDtoMapper()
         {
@@ -40,9 +37,7 @@ namespace TicketsAndMerch.Api.Controllers
             return Ok(response);
         }
 
-        // --------------------------------------------------------------
-        // Obtener un merch por ID (con validación)
-        // --------------------------------------------------------------
+  
         [HttpGet("dto/mapper/{id}")]
         public async Task<IActionResult> GetMerchDtoMapperById(int id)
         {
@@ -70,9 +65,7 @@ namespace TicketsAndMerch.Api.Controllers
             return Ok(response);
         }
 
-        // --------------------------------------------------------------
-        // Crear nuevo merch (DTO + validación)
-        // --------------------------------------------------------------
+ 
         [HttpPost("dto/mapper")]
         public async Task<IActionResult> InsertMerchDtoMapper([FromBody] MerchDto merchDto)
         {
@@ -91,9 +84,7 @@ namespace TicketsAndMerch.Api.Controllers
             return Ok(response);
         }
 
-        // --------------------------------------------------------------
-        // Actualizar merch existente (DTO + Mapper)
-        // --------------------------------------------------------------
+    
         [HttpPut("dto/mapper/{id}")]
         public async Task<IActionResult> UpdateMerchDtoMapper(int id, [FromBody] MerchDto merchDto)
         {
@@ -111,9 +102,7 @@ namespace TicketsAndMerch.Api.Controllers
             return Ok(response);
         }
 
-        // --------------------------------------------------------------
-        // Eliminar merch existente
-        // --------------------------------------------------------------
+
         [HttpDelete("dto/mapper/{id}")]
         public async Task<IActionResult> DeleteMerchDtoMapper(int id)
         {

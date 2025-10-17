@@ -18,7 +18,7 @@ namespace TicketsAndMerch.Infrastructure.Repositories
         public async Task<IEnumerable<Ticket>> GetAllTicketsAsync()
         {
             var tickets = await _context.Tickets
-                .Include(t => t.Concert) // Incluye el concierto al que pertenece
+                .Include(t => t.Concert) 
                 .ToListAsync();
 
             return tickets;

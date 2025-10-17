@@ -21,7 +21,7 @@ namespace TicketsAndMerch.Infrastructure.Data.Configurations
             builder.HasKey(e => e.ConcertId)
                    .HasName("PK_Concerts");
 
-            // Propiedad ConcertId (autogenerada por la BD si quieres)
+            
             builder.Property(e => e.ConcertId)
                    .ValueGeneratedNever();
 

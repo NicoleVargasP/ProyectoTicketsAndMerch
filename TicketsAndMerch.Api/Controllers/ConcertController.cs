@@ -27,7 +27,7 @@ namespace TicketsAndMerch.Api.Controllers
             _validationService = validationService;
         }
 
-        // GET: api/concert/dto/mapper
+       
         [HttpGet("dto/mapper")]
         public async Task<IActionResult> GetAllConcerts()
         {
@@ -38,11 +38,11 @@ namespace TicketsAndMerch.Api.Controllers
             return Ok(response);
         }
 
-        // GET: api/concert/dto/mapper/{id}
+        
         [HttpGet("dto/mapper/{id}")]
         public async Task<IActionResult> GetConcertById(int id)
         {
-            // Validar ID antes de buscar
+          
             var validation = await _validationService.ValidateAsync(new GetByIdRequest { Id = id });
             if (!validation.IsValid)
                 return BadRequest(new { Errors = validation.Errors });
@@ -57,11 +57,11 @@ namespace TicketsAndMerch.Api.Controllers
             return Ok(response);
         }
 
-        // POST: api/concert/dto/mapper
+      
         [HttpPost("dto/mapper")]
         public async Task<IActionResult> CreateConcert([FromBody] ConcertDto concertDto)
         {
-            // Validar DTO
+           
             var validation = await _validationService.ValidateAsync(concertDto);
             if (!validation.IsValid)
                 return BadRequest(new { Errors = validation.Errors });
@@ -73,7 +73,7 @@ namespace TicketsAndMerch.Api.Controllers
             return Ok(response);
         }
 
-        // PUT: api/concert/dto/mapper/{id}
+        
         [HttpPut("dto/mapper/{id}")]
         public async Task<IActionResult> UpdateConcert(int id, [FromBody] ConcertDto concertDto)
         {
@@ -91,7 +91,7 @@ namespace TicketsAndMerch.Api.Controllers
             return Ok(response);
         }
 
-        // DELETE: api/concert/dto/mapper/{id}
+    
         [HttpDelete("dto/mapper/{id}")]
         public async Task<IActionResult> DeleteConcert(int id)
         {

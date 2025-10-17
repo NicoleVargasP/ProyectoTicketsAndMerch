@@ -10,7 +10,7 @@ namespace TicketsAndMerch.Core.Services
         {
             _userRepository = userRepository;
         }
-        // Método para registrar un usuario con reglas de negocio
+        // Registrar un usuario con reglas de negocio
         public async Task<User> AddUserAsync(User user)
         {
             // R1: Validar correo repetido

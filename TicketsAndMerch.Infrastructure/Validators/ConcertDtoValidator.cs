@@ -32,13 +32,13 @@ namespace TicketsAndMerch.Infrastructure.Validators
                 .GreaterThanOrEqualTo(0).WithMessage("El número de entradas disponibles no puede ser negativo.");
         }
 
-        // Método auxiliar: la fecha debe ser válida (no vacía ni default)
+      
         private bool BeValidDate(DateOnly date)
         {
             return date != default(DateOnly);
         }
 
-        // Método auxiliar: la fecha debe ser igual o posterior a hoy
+ 
         private bool BeFutureDate(DateOnly date)
         {
             return date >= DateOnly.FromDateTime(DateTime.Today);

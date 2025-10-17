@@ -18,7 +18,7 @@ namespace TicketsAndMerch.Infrastructure.Repositories
         public async Task<IEnumerable<User>> GetAllUsersAsync()
         {
             var users = await _context.Users
-                // .Include(u => u.Orders) // Incluye las órdenes del usuario
+                // .Include(u => u.Orders) 
                 .AsNoTracking() 
                 .ToListAsync();
 
