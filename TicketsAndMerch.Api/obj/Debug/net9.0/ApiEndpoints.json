@@ -1,0 +1,513 @@
+[
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.ConcertController",
+    "Method": "GetAllConcerts",
+    "RelativePath": "api/Concert/dto/mapper",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.ConcertController",
+    "Method": "CreateConcert",
+    "RelativePath": "api/Concert/dto/mapper",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "concertDto",
+        "Type": "TicketsAndMerch.Infrastructure.DTOs.ConcertDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.ConcertController",
+    "Method": "GetConcertById",
+    "RelativePath": "api/Concert/dto/mapper/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.ConcertController",
+    "Method": "UpdateConcert",
+    "RelativePath": "api/Concert/dto/mapper/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "concertDto",
+        "Type": "TicketsAndMerch.Infrastructure.DTOs.ConcertDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.ConcertController",
+    "Method": "DeleteConcert",
+    "RelativePath": "api/Concert/dto/mapper/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.MerchController",
+    "Method": "GetAllMerchDtoMapper",
+    "RelativePath": "api/Merch/dto/mapper",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.MerchController",
+    "Method": "InsertMerchDtoMapper",
+    "RelativePath": "api/Merch/dto/mapper",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "merchDto",
+        "Type": "TicketsAndMerch.Infrastructure.DTOs.MerchDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.MerchController",
+    "Method": "GetMerchDtoMapperById",
+    "RelativePath": "api/Merch/dto/mapper/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.MerchController",
+    "Method": "UpdateMerchDtoMapper",
+    "RelativePath": "api/Merch/dto/mapper/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "merchDto",
+        "Type": "TicketsAndMerch.Infrastructure.DTOs.MerchDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.MerchController",
+    "Method": "DeleteMerchDtoMapper",
+    "RelativePath": "api/Merch/dto/mapper/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.OrderController",
+    "Method": "GetAllOrdersDtoMapper",
+    "RelativePath": "api/Order/dto/mapper",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.OrderController",
+    "Method": "AddOrderDtoMapper",
+    "RelativePath": "api/Order/dto/mapper",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderDto",
+        "Type": "TicketsAndMerch.Infrastructure.DTOs.OrderDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.OrderController",
+    "Method": "GetOrderDtoMapperId",
+    "RelativePath": "api/Order/dto/mapper/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.OrderController",
+    "Method": "UpdateOrderDtoMapper",
+    "RelativePath": "api/Order/dto/mapper/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "orderDto",
+        "Type": "TicketsAndMerch.Infrastructure.DTOs.OrderDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.OrderController",
+    "Method": "DeleteOrderDtoMapper",
+    "RelativePath": "api/Order/dto/mapper/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.PaymentController",
+    "Method": "GetPaymentsDtoMapper",
+    "RelativePath": "api/Payment/dto/mapper",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.PaymentController",
+    "Method": "AddPaymentDtoMapper",
+    "RelativePath": "api/Payment/dto/mapper",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paymentDto",
+        "Type": "TicketsAndMerch.Infrastructure.DTOs.PaymentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.PaymentController",
+    "Method": "GetPaymentDtoMapperId",
+    "RelativePath": "api/Payment/dto/mapper/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.PaymentController",
+    "Method": "UpdatePaymentDtoMapper",
+    "RelativePath": "api/Payment/dto/mapper/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "paymentDto",
+        "Type": "TicketsAndMerch.Infrastructure.DTOs.PaymentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.PaymentController",
+    "Method": "DeletePaymentDtoMapper",
+    "RelativePath": "api/Payment/dto/mapper/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.TicketController",
+    "Method": "GetTicketsDtoMapper",
+    "RelativePath": "api/Ticket/dto/mapper",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.TicketController",
+    "Method": "AddTicketDtoMapper",
+    "RelativePath": "api/Ticket/dto/mapper",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ticketDto",
+        "Type": "TicketsAndMerch.Infrastructure.DTOs.TicketDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.TicketController",
+    "Method": "GetTicketDtoMapperId",
+    "RelativePath": "api/Ticket/dto/mapper/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.TicketController",
+    "Method": "UpdateTicketDtoMapper",
+    "RelativePath": "api/Ticket/dto/mapper/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "ticketDto",
+        "Type": "TicketsAndMerch.Infrastructure.DTOs.TicketDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.TicketController",
+    "Method": "DeleteTicketDtoMapper",
+    "RelativePath": "api/Ticket/dto/mapper/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.UserController",
+    "Method": "GetUsersDtoMapper",
+    "RelativePath": "api/User/dto/mapper",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.UserController",
+    "Method": "AddUserDtoMapper",
+    "RelativePath": "api/User/dto/mapper",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDto",
+        "Type": "TicketsAndMerch.Infrastructure.DTOs.UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.UserController",
+    "Method": "GetUserDtoMapperId",
+    "RelativePath": "api/User/dto/mapper/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.UserController",
+    "Method": "UpdateUserDtoMapper",
+    "RelativePath": "api/User/dto/mapper/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "userDto",
+        "Type": "TicketsAndMerch.Infrastructure.DTOs.UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.UserController",
+    "Method": "DeleteUserDtoMapper",
+    "RelativePath": "api/User/dto/mapper/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.UserController",
+    "Method": "Register",
+    "RelativePath": "api/User/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "TicketsAndMerch.Core.Entities.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TicketsAndMerch.Api.WeatherForecast, TicketsAndMerch.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]

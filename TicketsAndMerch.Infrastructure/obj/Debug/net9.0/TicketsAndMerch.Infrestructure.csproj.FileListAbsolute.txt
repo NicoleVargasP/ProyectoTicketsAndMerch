@@ -1,0 +1,14 @@
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrestructure\bin\Debug\net9.0\TicketsAndMerch.Infrestructure.deps.json
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrestructure\bin\Debug\net9.0\TicketsAndMerch.Infrestructure.runtimeconfig.json
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrestructure\bin\Debug\net9.0\TicketsAndMerch.Infrestructure.dll
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrestructure\bin\Debug\net9.0\TicketsAndMerch.Infrestructure.pdb
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrestructure\obj\Debug\net9.0\TicketsAndMerch.Infrestructure.csproj.AssemblyReference.cache
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrestructure\obj\Debug\net9.0\TicketsAndMerch.Infrestructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrestructure\obj\Debug\net9.0\TicketsAndMerch.Infrestructure.AssemblyInfoInputs.cache
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrestructure\obj\Debug\net9.0\TicketsAndMerch.Infrestructure.AssemblyInfo.cs
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrestructure\obj\Debug\net9.0\TicketsAndMerch.Infrestructure.csproj.CoreCompileInputs.cache
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrestructure\obj\Debug\net9.0\TicketsAndMerch.Infrestructure.dll
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrestructure\obj\Debug\net9.0\refint\TicketsAndMerch.Infrestructure.dll
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrestructure\obj\Debug\net9.0\TicketsAndMerch.Infrestructure.pdb
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrestructure\obj\Debug\net9.0\TicketsAndMerch.Infrestructure.genruntimeconfig.cache
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrestructure\obj\Debug\net9.0\ref\TicketsAndMerch.Infrestructure.dll
