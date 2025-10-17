@@ -14,7 +14,10 @@ namespace TicketsAndMerch.Infrastructure.Validators
             RuleFor(x => x.Email)
                 .NotEmpty().WithMessage("El correo electrónico es obligatorio.")
                 .EmailAddress().WithMessage("El formato del correo electrónico no es válido.")
-                .MaximumLength(150).WithMessage("El correo no puede exceder los 150 caracteres.");
+                .MaximumLength(150).WithMessage("El correo no puede exceder los 150 caracteres.")
+                .MinimumLength(10).WithMessage("El correo electrónico debe tener al menos 10 caracteres.")
+                .Must(email => email.Contains("@"))
+                .WithMessage("El correo electrónico debe contener '@'.");
 
             RuleFor(x => x.Contrasenia)
                 .NotEmpty().WithMessage("La contraseña es obligatoria.")

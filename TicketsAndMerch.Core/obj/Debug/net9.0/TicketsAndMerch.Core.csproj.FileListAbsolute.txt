@@ -9,3 +9,4 @@ D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\refint\TicketsAndMerch.Core.dll
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\TicketsAndMerch.Core.pdb
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\ref\TicketsAndMerch.Core.dll
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\TicketsAndMerch.Core.sourcelink.json

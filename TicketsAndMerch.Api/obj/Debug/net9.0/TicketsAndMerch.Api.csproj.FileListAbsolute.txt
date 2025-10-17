@@ -175,3 +175,4 @@ D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\obj\Debug\net9.0\TicketsAndMerch.Api.pdb
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\obj\Debug\net9.0\TicketsAndMerch.Api.genruntimeconfig.cache
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\obj\Debug\net9.0\ref\TicketsAndMerch.Api.dll
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\obj\Debug\net9.0\TicketsAndMerch.Api.sourcelink.json

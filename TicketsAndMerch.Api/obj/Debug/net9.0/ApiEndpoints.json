@@ -482,8 +482,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "user",
-        "Type": "TicketsAndMerch.Core.Entities.User",
+        "Name": "userDto",
+        "Type": "TicketsAndMerch.Infrastructure.DTOs.UserDto",
         "IsRequired": true
       }
     ],

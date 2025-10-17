@@ -16,24 +16,18 @@ namespace TicketsAndMerch.Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // --------------------------------------------------------------------
-            // CONFIGURACIÓN DE BASE DE DATOS
-            // --------------------------------------------------------------------
+           
             var connectionString = builder.Configuration.GetConnectionString("ConnectionSqlServer");
             builder.Services.AddDbContext<TicketsAndMerchContext>(options =>
                 options.UseSqlServer(connectionString));
 
-            // --------------------------------------------------------------------
-            //  CONFIGURAR AUTOMAPPER
-            // --------------------------------------------------------------------
+            
             builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-            // --------------------------------------------------------------------
-            //  INYECCIÓN DE DEPENDENCIAS (Repositorios y Servicios)
-            // --------------------------------------------------------------------
             //  Concerts
             builder.Services.AddScoped<IConcertRepository, ConcertRepository>();
             builder.Services.AddScoped<IConcertService, ConcertService>();
+
 
             // Merch
             builder.Services.AddScoped<IMerchRepository, MerchRepository>();
@@ -55,9 +49,7 @@ namespace TicketsAndMerch.Api
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
 
-            // --------------------------------------------------------------------
-            // VALIDACIONES (FluentValidation + ValidationFilter)
-            // --------------------------------------------------------------------
+            //builder.Services.AddValidatorsFromAssemblyContaining<UserDtoValidator>();
             // Servicio general de validación
             builder.Services.AddScoped<IValidationService, ValidationService>();
 
@@ -81,9 +73,6 @@ namespace TicketsAndMerch.Api
                 options.SuppressModelStateInvalidFilter = true;
             });
 
-            // --------------------------------------------------------------------
-            // CONSTRUCCIÓN DE LA APLICACIÓN
-            // --------------------------------------------------------------------
             var app = builder.Build();
 
             // Middleware: redirigir a HTTPS

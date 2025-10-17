@@ -15,3 +15,4 @@ D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infr
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrastructure\obj\Debug\net9.0\TicketsAndMerch.Infrastructure.pdb
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrastructure\obj\Debug\net9.0\TicketsAndMerch.Infrastructure.genruntimeconfig.cache
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrastructure\obj\Debug\net9.0\ref\TicketsAndMerch.Infrastructure.dll
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrastructure\obj\Debug\net9.0\TicketsAndMerch.Infrastructure.sourcelink.json

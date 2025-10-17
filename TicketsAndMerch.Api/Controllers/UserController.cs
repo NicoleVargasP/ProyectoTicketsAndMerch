@@ -87,19 +87,25 @@ namespace TicketsAndMerch.Api.Controllers
         #endregion
         // REGISTRO DE USUARIO (caso de uso)
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] User user)
+        public async Task<IActionResult> Register([FromBody] UserDto userDto)
         {
+            var validationResult = await _validationService.ValidateAsync(userDto);
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(new { Errors = validationResult.Errors });
+            }
+
             try
             {
-                var newUser = await _userService.AddUserAsync(user);
-                var response = new ApiResponse<User>(newUser);
-                return Ok(response);
+                var user = _mapper.Map<User>(userDto);
+                var result = await _userService.AddUserAsync(user);
+                return Ok(new ApiResponse<User>(result));
             }
             catch (Exception ex)
             {
-                return BadRequest(new { Error = ex.Message });
+                return BadRequest(new { Message = ex.Message });
             }
         }
-    }
 
+    }
 }
