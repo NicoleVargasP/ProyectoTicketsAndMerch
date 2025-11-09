@@ -18,7 +18,7 @@ namespace TicketsAndMerch.Core.Services
 
         public async Task<ResponseData> GetAllConcertsAsync(ConcertQueryFilter filters)
         {
-            var concerts = await _unitOfWork.ConcertRepository.GetAll();
+            var concerts = await _unitOfWork.ConcertRepositoryExtra.GetAll();
 
             if (!string.IsNullOrEmpty(filters.Title))
             {
@@ -54,13 +54,13 @@ namespace TicketsAndMerch.Core.Services
 
         public async Task<IEnumerable<Concert>> GetAllConcertsDapperAsync()
         {
-            var concerts = await _unitOfWork.ConcertRepository.GetAll();
+            var concerts = await _unitOfWork.ConcertRepositoryExtra.GetAll();
             return concerts;
         }
 
         public async Task<Concert> GetConcertByIdAsync(int id)
         {
-            return await _unitOfWork.ConcertRepository.GetById(id);
+            return await _unitOfWork.ConcertRepositoryExtra.GetById(id);
         }
 
         public async Task AddConcertAsync(Concert concert)

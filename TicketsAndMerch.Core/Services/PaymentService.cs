@@ -17,7 +17,7 @@ namespace TicketsAndMerch.Core.Services
 
         public async Task<ResponseData> GetAllPaymentsAsync(PaymentQueryFilter filters)
         {
-            var payments = await _unitOfWork.PaymentRepository.GetAll();
+            var payments = await _unitOfWork.PaymentRepositoryExtra.GetAll();
 
             if (!string.IsNullOrEmpty(filters.Method))
                 payments = payments.Where(x => x.Method.ToLower().Contains(filters.Method.ToLower()));
@@ -34,13 +34,13 @@ namespace TicketsAndMerch.Core.Services
 
         public async Task<IEnumerable<Payment>> GetAllPaymentsDapperAsync()
         {
-            var payments = await _unitOfWork.PaymentRepository.GetAll();
+            var payments = await _unitOfWork.PaymentRepositoryExtra.GetAll();
             return payments;
         }
 
         public async Task<Payment> GetPaymentByIdAsync(int id)
         {
-            return await _unitOfWork.PaymentRepository.GetById(id);
+            return await _unitOfWork.PaymentRepositoryExtra.GetById(id);
         }
 
         public async Task AddPaymentAsync(Payment payment)

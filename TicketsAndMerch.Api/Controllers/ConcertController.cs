@@ -130,25 +130,26 @@ namespace TicketsAndMerch.Api.Controllers
             if (!validationResult.IsValid)
                 return BadRequest(new { Errors = validationResult.Errors });
             #endregion
-
+           
             try
             {
                 var concert = _mapper.Map<Concert>(concertDto);
-                await _concertService.AddConcertAsync(concert);
+              
 
+                await _concertService.AddConcertAsync(concert);
                 var response = new ApiResponse<Concert>(concert);
                 return Ok(response);
             }
             catch (Exception ex)
             {
-                return StatusCode((int)HttpStatusCode.InternalServerError, new { Message = ex.Message });
+                return StatusCode(500, new { Message = "Error al crear el concierto", Error = ex.Message });
             }
         }
 
         [HttpPut("dto/mapper/{id}")]
         public async Task<IActionResult> UpdateConcertDtoMapper(int id, [FromBody] ConcertDto concertDto)
         {
-            if (id != concertDto.ConcertId)
+            if (id != concertDto.Id)
                 return BadRequest("El Id del concierto no coincide");
 
             var concert = await _concertService.GetConcertByIdAsync(id);

@@ -5,7 +5,7 @@ namespace TicketsAndMerch.Infrastructure.DTOs;
 
 public partial class PaymentDto
 {
-    public int PaymentId { get; set; }
+    public int Id { get; set; }
 
     public int OrderId { get; set; }
 

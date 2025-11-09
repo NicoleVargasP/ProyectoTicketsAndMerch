@@ -1,11 +1,12 @@
 ﻿using FluentValidation;
 using TicketsAndMerch.Core.Entities;
+using TicketsAndMerch.Infrastructure.DTOs;
 
 namespace TicketsAndMerch.Infrastructure.Validators
 {
-    public class ConcertValidator : AbstractValidator<Concert>
+    public class ConcertDtoValidator : AbstractValidator<ConcertDto>
     {
-        public ConcertValidator()
+        public ConcertDtoValidator()
         {
             // Validar título del concierto
             RuleFor(x => x.Title)

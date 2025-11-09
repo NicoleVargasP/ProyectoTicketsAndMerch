@@ -2,7 +2,7 @@
 {
     public class ConcertDto
     {
-        public int ConcertId { get; set; }
+        public int Id { get; set; }
 
         public string Title { get; set; } = null!;
 

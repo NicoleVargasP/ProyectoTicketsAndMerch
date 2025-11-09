@@ -23,7 +23,7 @@ namespace TicketsAndMerch.Infrastructure.Data.Configurations
 
             
             builder.Property(e => e.Id)
-                   .ValueGeneratedNever();
+                   .ValueGeneratedOnAdd();
 
             // Campo Title obligatorio, hasta 100 caracteres
             builder.Property(e => e.Title)

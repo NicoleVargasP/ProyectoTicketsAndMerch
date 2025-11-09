@@ -17,7 +17,7 @@ namespace TicketsAndMerch.Core.Services
 
         public async Task<ResponseData> GetAllUsersAsync(UserQueryFilter filters)
         {
-            var users = await _unitOfWork.UserRepository.GetAll();
+            var users = await _unitOfWork.UserRepositoryExtra.GetAllUsersAsync();
 
             if (!string.IsNullOrEmpty(filters.UserName))
                 users = users.Where(x => x.UserName.ToLower().Contains(filters.UserName.ToLower()));
@@ -37,13 +37,13 @@ namespace TicketsAndMerch.Core.Services
 
         public async Task<IEnumerable<User>> GetAllUsersDapperAsync()
         {
-            var users = await _unitOfWork.UserRepository.GetAll();
+            var users = await _unitOfWork.UserRepositoryExtra.GetAllUsersAsync();
             return users;
         }
 
         public async Task<User> GetUserByIdAsync(int id)
         {
-            return await _unitOfWork.UserRepository.GetById(id);
+            return await _unitOfWork.UserRepositoryExtra.GetUserByIdAsync(id);
         }
 
         public async Task<User> AddUserAsync(User user)

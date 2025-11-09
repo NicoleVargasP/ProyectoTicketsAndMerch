@@ -2,7 +2,7 @@
 {
     public partial class TicketDto
     {
-        public int TicketId { get; set; }
+        public int Id { get; set; }
 
         public int ConcertId { get; set; }
 

@@ -131,7 +131,7 @@ namespace TicketsAndMerch.Api.Controllers
         [HttpPut("dto/mapper/{id}")]
         public async Task<IActionResult> UpdateOrderDtoMapper(int id, [FromBody] OrderDto orderDto)
         {
-            if (id != orderDto.OrderId)
+            if (id != orderDto.Id)
                 return BadRequest("El Id de la orden no coincide.");
 
             var order = await _orderService.GetOrderByIdAsync(id);

@@ -12,7 +12,6 @@ namespace TicketsAndMerch.Infrastructure.Mappings
             CreateMap<Concert, ConcertDto>();
             CreateMap<ConcertDto, Concert>();
 
-            
             CreateMap<Merch, MerchDto>();
             CreateMap<MerchDto, Merch>();
 

@@ -134,7 +134,7 @@ namespace TicketsAndMerch.Api.Controllers
         [HttpPut("dto/mapper/{id}")]
         public async Task<IActionResult> UpdateTicketDtoMapper(int id, [FromBody] TicketDto ticketDto)
         {
-            if (id != ticketDto.TicketId)
+            if (id != ticketDto.Id)
                 return BadRequest("El Id del ticket no coincide con el cuerpo de la solicitud.");
 
             var ticket = await _ticketService.GetTicketByIdAsync(id);

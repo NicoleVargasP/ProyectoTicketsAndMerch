@@ -135,7 +135,7 @@ namespace TicketsAndMerch.Api.Controllers
         [HttpPut("dto/mapper/{id}")]
         public async Task<IActionResult> UpdatePaymentDtoMapper(int id, [FromBody] PaymentDto paymentDto)
         {
-            if (id != paymentDto.PaymentId)
+            if (id != paymentDto.Id)
                 return BadRequest("El Id del pago no coincide con el cuerpo de la solicitud.");
 
             var payment = await _paymentService.GetPaymentByIdAsync(id);

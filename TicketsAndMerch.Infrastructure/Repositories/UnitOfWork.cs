@@ -22,6 +22,12 @@ namespace TicketsAndMerch.Infrastructure.Repositories
         private IBaseRepository<Ticket>? _ticketRepository;
         private IBaseRepository<User>? _userRepository;
 
+        private IUserRepository _userRepositoryExtra;
+        private IConcertRepository _concertRepositoryExtra;
+        private ITicketRepository _ticketRepositoryExtra;
+        private IPaymentRepository _paymentRepositoryExtra;
+        private IOrderRepository _orderRepositoryExtra;
+        private IMerchRepository _merchRepositoryExtra;
         public UnitOfWork(TicketsAndMerchContext context, IDapperContext dapper)
         {
             _context = context;
@@ -44,6 +50,21 @@ namespace TicketsAndMerch.Infrastructure.Repositories
             _ticketRepository ??= new BaseRepository<Ticket>(_context);
         public IBaseRepository<User> UserRepository =>
             _userRepository ??= new BaseRepository<User>(_context);
+
+
+        public IUserRepository UserRepositoryExtra =>
+            _userRepositoryExtra ??= new UserRepository(_context, _dapper);
+        public IConcertRepository ConcertRepositoryExtra =>
+            _concertRepositoryExtra ??= new ConcertRepository(_context, _dapper);
+        public ITicketRepository TicketRepositoryExtra =>
+            _ticketRepositoryExtra ??= new TicketRepository(_context, _dapper);
+        public IPaymentRepository PaymentRepositoryExtra =>
+            _paymentRepositoryExtra ??= new PaymentRepository(_context, _dapper);
+        public IOrderRepository OrderRepositoryExtra =>
+            _orderRepositoryExtra ??= new OrderRepository(_context, _dapper);
+        public IMerchRepository MerchRepositoryExtra =>
+            _merchRepositoryExtra ??= new MerchRepository(_context, _dapper);
+
 
 
 

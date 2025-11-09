@@ -18,7 +18,7 @@ namespace TicketsAndMerch.Core.Services
 
         public async Task<ResponseData> GetAllMerchAsync(MerchQueryFilter filters)
         {
-            var merch = await _unitOfWork.MerchRepository.GetAll();
+            var merch = await _unitOfWork.MerchRepositoryExtra.GetAll();
 
             if (!string.IsNullOrEmpty(filters.MerchName))
                 merch = merch.Where(x => x.MerchName.ToLower().Contains(filters.MerchName.ToLower()));
@@ -41,13 +41,13 @@ namespace TicketsAndMerch.Core.Services
 
         public async Task<IEnumerable<Merch>> GetAllMerchDapperAsync()
         {
-            var merch = await _unitOfWork.MerchRepository.GetAll();
+            var merch = await _unitOfWork.MerchRepositoryExtra.GetAll();
             return merch;
         }
 
         public async Task<Merch> GetMerchByIdAsync(int id)
         {
-            return await _unitOfWork.MerchRepository.GetById(id);
+            return await _unitOfWork.MerchRepositoryExtra.GetById(id);
         }
 
         public async Task AddMerchAsync(Merch merch)

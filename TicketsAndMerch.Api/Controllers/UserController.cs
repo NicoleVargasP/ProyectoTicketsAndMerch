@@ -43,7 +43,7 @@ namespace TicketsAndMerch.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         [HttpGet("dto/mapper")]
-        public async Task<IActionResult> GetUsersDtoMapper([FromQuery] UserQueryFilter userQueryFilter, int idAux)
+        public async Task<IActionResult> GetUsersDtoMapper([FromQuery] UserQueryFilter userQueryFilter)
         {
             try
             {
@@ -134,7 +134,7 @@ namespace TicketsAndMerch.Api.Controllers
         [HttpPut("dto/mapper/{id}")]
         public async Task<IActionResult> UpdateUserDtoMapper(int id, [FromBody] UserDto userDto)
         {
-            if (id != userDto.UserId)
+            if (id != userDto.Id)
                 return BadRequest("El Id del usuario no coincide.");
 
             var user = await _userService.GetUserByIdAsync(id);

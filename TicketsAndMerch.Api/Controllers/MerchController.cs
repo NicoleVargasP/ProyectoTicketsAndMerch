@@ -132,7 +132,7 @@ namespace TicketsAndMerch.Api.Controllers
         [HttpPut("dto/mapper/{id}")]
         public async Task<IActionResult> UpdateMerchDtoMapper(int id, [FromBody] MerchDto merchDto)
         {
-            if (id != merchDto.MerchId)
+            if (id != merchDto.Id)
                 return BadRequest("El Id del producto no coincide.");
 
             var merch = await _merchService.GetMerchByIdAsync(id);

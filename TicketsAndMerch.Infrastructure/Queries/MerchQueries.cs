@@ -6,15 +6,14 @@ namespace TicketsAndMerch.Infrastructure.Queries
     {
         public static string MerchQuerySqlServer = @"
             SELECT Id, MerchName, Description, Price, TypeMerch, Stock
-            FROM Merch
-            ORDER BY Price DESC
-            OFFSET 0 ROWS FETCH NEXT @Limit ROWS ONLY;";
+            FROM [Merch]
+            ORDER BY Price DESC;";
 
-        public static string MerchQueryMySql = @"
-            SELECT Id, MerchName, Description, Price, TypeMerch, Stock
-            FROM Merch
-            ORDER BY Price DESC
-            LIMIT @Limit;";
+        public static string MerchByIdQuerySQLServer = @"
+            SELECT *
+            FROM [Merch]
+            WHERE Id=@id
+            ORDER BY Id DESC;";
 
         public static string MerchLowStock = @"
             SELECT Id, MerchName, Stock, Price

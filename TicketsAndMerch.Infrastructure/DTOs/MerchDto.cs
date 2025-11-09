@@ -2,7 +2,7 @@
 {
     public class MerchDto
     {
-        public int MerchId { get; set; }
+        public int Id { get; set; }
 
         public string MerchName { get; set; } = null!;
 

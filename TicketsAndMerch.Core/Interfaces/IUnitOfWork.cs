@@ -14,6 +14,12 @@ namespace TicketsAndMerch.Core.Interfaces
         IBaseRepository<Ticket> TicketRepository { get; }
         IBaseRepository<User> UserRepository { get; }
 
+        IUserRepository UserRepositoryExtra { get; }
+        IConcertRepository ConcertRepositoryExtra { get; }
+        ITicketRepository TicketRepositoryExtra { get; }
+        IPaymentRepository PaymentRepositoryExtra { get; }
+        IOrderRepository  OrderRepositoryExtra { get; }
+        IMerchRepository MerchRepositoryExtra { get; }
         void SaveChanges();
         Task SaveChangesAsync();
 

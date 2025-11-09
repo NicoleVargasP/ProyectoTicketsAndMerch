@@ -1,32 +1,58 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TicketsAndMerch.Core.Entities;
+using TicketsAndMerch.Core.Enum;
 using TicketsAndMerch.Core.Interfaces;
 using TicketsAndMerch.Infrastructure.Data;
+using TicketsAndMerch.Infrastructure.Queries;
 
 namespace TicketsAndMerch.Infrastructure.Repositories
 {
     public class OrderRepository : BaseRepository<Order>, IOrderRepository
     {
-        public OrderRepository(TicketsAndMerchContext context) : base(context)
+        private readonly IDapperContext _dapper;
+        public OrderRepository(TicketsAndMerchContext context, IDapperContext dapper) : base(context)
         {
+            _dapper = dapper;  
         }
 
         public async Task<IEnumerable<Order>> GetAllOrdersAsync()
         {
-            return await _entities
-                .Include(o => o.User)
-                .Include(o => o.Merch)
-                .Include(o => o.Ticket)
-                .ToListAsync();
+            try
+            {
+                var sql = _dapper.Provider switch
+                {
+                    DatabaseProvider.SqlServer => OrderQueries.OrderQuerySqlServer,
+
+                    DatabaseProvider.MySql => @"",
+                    _ => throw new NotSupportedException("Provider no soportado")
+                };
+
+                return await _dapper.QueryAsync<Order>(sql);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
-        public async Task<Order> GetOrderByIdAsync(int id)
+        public async Task<Order> GetOrderByIdAsync(int ide)
         {
-            return await _entities
-                .Include(o => o.User)
-                .Include(o => o.Merch)
-                .Include(o => o.Ticket)
-                .FirstOrDefaultAsync(o => o.Id == id);
+            try
+            {
+                var sql = _dapper.Provider switch
+                {
+                    DatabaseProvider.SqlServer => OrderQueries.OrderByIdQuerySQLServer,
+
+                    DatabaseProvider.MySql => @"",
+                    _ => throw new NotSupportedException("Provider no soportado")
+                };
+
+                return await _dapper.QueryFirstOrDefaultAsync<Order>(sql, new { id = ide });
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<IEnumerable<Order>> GetOrdersByUserAsync(int userId)

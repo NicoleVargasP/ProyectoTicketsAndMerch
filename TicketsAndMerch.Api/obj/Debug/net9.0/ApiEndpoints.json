@@ -826,11 +826,6 @@
         "Name": "PageNumber",
         "Type": "System.Int32",
         "IsRequired": false
-      },
-      {
-        "Name": "idAux",
-        "Type": "System.Int32",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": [

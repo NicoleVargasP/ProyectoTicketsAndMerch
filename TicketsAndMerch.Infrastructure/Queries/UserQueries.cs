@@ -5,23 +5,26 @@ namespace TicketsAndMerch.Infrastructure.Queries
     public static class UserQueries
     {
         public static string UserQuerySqlServer = @"
-            SELECT Id, UserName, Email, Contrasenia, Rol
-            FROM [User]
-            ORDER BY Id DESC
-            OFFSET 0 ROWS FETCH NEXT @Limit ROWS ONLY;";
+            SELECT *
+            FROM [Users]
+            ORDER BY Id DESC";
+        public static string UserByIdQuerySQLServer= @"
+            SELECT *
+            FROM [Users]
+            WHERE Id=@id
+            ORDER BY Id DESC;";
 
         public static string UserQueryMySql = @"
-            SELECT Id, UserName, Email, Contrasenia, Rol
-            FROM `User`
-            ORDER BY Id DESC
-            LIMIT @Limit;";
+            SELECT *
+            FROM `Users`
+            ORDER BY Id DESC;";
 
         public static string UsersWithOrders = @"
-            SELECT u.Id, u.UserName, u.Email, COUNT(o.Id) AS TotalOrders
-            FROM [User] u
-            LEFT JOIN [Order] o ON u.Id = o.UserId
+            SELECT u.Id, u.UserName, u.Email, COUNT(o.OrderId) AS TotalOrders
+            FROM [Users] u
+            LEFT JOIN [Orders] o ON u.Id = o.Id
             GROUP BY u.Id, u.UserName, u.Email
-            HAVING COUNT(o.Id) > 0
+            HAVING COUNT(o.OrderId) > 0
             ORDER BY TotalOrders DESC;";
     }
 }

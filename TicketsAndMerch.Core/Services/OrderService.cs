@@ -17,7 +17,7 @@ namespace TicketsAndMerch.Core.Services
 
         public async Task<ResponseData> GetAllOrdersAsync(OrderQueryFilter filters)
         {
-            var orders = await _unitOfWork.OrderRepository.GetAll();
+            var orders = await _unitOfWork.OrderRepositoryExtra.GetAll();
 
             if (filters.UserId != null)
                 orders = orders.Where(x => x.UserId == filters.UserId);
@@ -46,13 +46,13 @@ namespace TicketsAndMerch.Core.Services
 
         public async Task<IEnumerable<Order>> GetAllOrdersDapperAsync()
         {
-            var orders = await _unitOfWork.OrderRepository.GetAll();
+            var orders = await _unitOfWork.OrderRepositoryExtra.GetAll();
             return orders;
         }
 
         public async Task<Order> GetOrderByIdAsync(int id)
         {
-            return await _unitOfWork.OrderRepository.GetById(id);
+            return await _unitOfWork.OrderRepositoryExtra.GetById(id);
         }
 
         public async Task AddOrderAsync(Order order)
