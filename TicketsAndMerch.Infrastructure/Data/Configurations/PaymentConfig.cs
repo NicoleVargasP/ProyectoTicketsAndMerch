@@ -17,11 +17,11 @@ namespace TicketsAndMerch.Infrastructure.Data.Configurations
             builder.ToTable("Payments");
 
             // Clave primaria
-            builder.HasKey(e => e.PaymentId)
+            builder.HasKey(e => e.Id)
                    .HasName("PK_Payments");
 
             // PaymentId autogenerado
-            builder.Property(e => e.PaymentId)
+            builder.Property(e => e.Id)
                    .ValueGeneratedOnAdd();
 
             // Método de pago (tarjeta, efectivo, QR, etc.)

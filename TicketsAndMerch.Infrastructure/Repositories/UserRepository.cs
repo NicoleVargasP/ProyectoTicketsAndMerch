@@ -5,63 +5,41 @@ using TicketsAndMerch.Infrastructure.Data;
 
 namespace TicketsAndMerch.Infrastructure.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : BaseRepository<User>, IUserRepository
     {
-        private readonly TicketsAndMerchContext _context;
-
-        public UserRepository(TicketsAndMerchContext context)
+        public UserRepository(TicketsAndMerchContext context) : base(context)
         {
-            _context = context;
         }
 
         // Obtener todos los usuarios
         public async Task<IEnumerable<User>> GetAllUsersAsync()
         {
-            var users = await _context.Users
-                // .Include(u => u.Orders) 
-                .AsNoTracking() 
+            return await _entities
+                //.Include(u => u.Orders)
+                .AsNoTracking()
                 .ToListAsync();
-
-            return users;
         }
-
-
 
         // Obtener un usuario por ID
-        public async Task<User> GetUserByIdAsync(int id)
+        public async Task<User?> GetUserByIdAsync(int id)
         {
-            var user = await _context.Users
-               // .Include(u => u.Orders)
-                .FirstOrDefaultAsync(u => u.UserId == id);
-
-            return user;
+            return await _entities
+                //.Include(u => u.Orders)
+                .FirstOrDefaultAsync(u => u.Id == id);
         }
 
-        // Agregar un nuevo usuario
-        public async Task AddUserAsync(User user)
+        // Obtener usuario por correo electrónico
+        public async Task<User?> GetUserByEmailAsync(string email)
         {
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            return await _entities
+                .FirstOrDefaultAsync(u => u.Email == email);
         }
 
-        // Actualizar un usuario existente
-        public async Task UpdateUserAsync(User user)
+        // Verificar existencia por correo
+        public async Task<bool> EmailExistsAsync(string email)
         {
-            _context.Users.Update(user);
-            await _context.SaveChangesAsync();
+            return await _entities.AnyAsync(u => u.Email == email);
         }
-
-        // Eliminar un usuario
-        public async Task DeleteUserAsync(User user)
-        {
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
-        }
-        // Verificar Email 
-        public async Task<User> GetUserByEmailAsync(string email)
-        {
-            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
-        }
-
     }
 }
+

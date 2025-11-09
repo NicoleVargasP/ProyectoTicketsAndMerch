@@ -18,11 +18,11 @@ namespace TicketsAndMerch.Infrastructure.Data.Configurations
             builder.ToTable("Concerts");
 
             // Clave primaria
-            builder.HasKey(e => e.ConcertId)
+            builder.HasKey(e => e.Id)
                    .HasName("PK_Concerts");
 
             
-            builder.Property(e => e.ConcertId)
+            builder.Property(e => e.Id)
                    .ValueGeneratedNever();
 
             // Campo Title obligatorio, hasta 100 caracteres

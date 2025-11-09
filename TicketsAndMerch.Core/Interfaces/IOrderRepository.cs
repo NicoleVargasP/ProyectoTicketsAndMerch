@@ -2,12 +2,11 @@
 
 namespace TicketsAndMerch.Core.Interfaces
 {
-    public interface IOrderRepository
+    public interface IOrderRepository : IBaseRepository<Order>
     {
         Task<IEnumerable<Order>> GetAllOrdersAsync();
         Task<Order> GetOrderByIdAsync(int id);
-        Task AddOrderAsync(Order order);
-        Task UpdateOrderAsync(Order order);
-        Task DeleteOrderAsync(Order order);
+        Task<IEnumerable<Order>> GetOrdersByUserAsync(int userId);
     }
 }
+

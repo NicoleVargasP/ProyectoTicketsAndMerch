@@ -1,72 +1,77 @@
-﻿using TicketsAndMerch.Core.Entities;
+﻿using System.Net;
+using TicketsAndMerch.Core.CustomEntities;
+using TicketsAndMerch.Core.Entities;
+using TicketsAndMerch.Core.Exceptions;
 using TicketsAndMerch.Core.Interfaces;
+using TicketsAndMerch.Core.QueryFilters;
+
 namespace TicketsAndMerch.Core.Services
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository _userRepository;
-
-        public UserService(IUserRepository userRepository)
+        private readonly IUnitOfWork _unitOfWork;
+        public UserService(IUnitOfWork unitOfWork)
         {
-            _userRepository = userRepository;
+            _unitOfWork = unitOfWork;
         }
-        // Registrar un usuario con reglas de negocio
-        public async Task<User> AddUserAsync(User user)
+
+        public async Task<ResponseData> GetAllUsersAsync(UserQueryFilter filters)
         {
-            // R1: Validar correo repetido
-            var existingUser = await _userRepository.GetUserByEmailAsync(user.Email);
-            if (existingUser != null)
+            var users = await _unitOfWork.UserRepository.GetAll();
+
+            if (!string.IsNullOrEmpty(filters.UserName))
+                users = users.Where(x => x.UserName.ToLower().Contains(filters.UserName.ToLower()));
+
+            if (!string.IsNullOrEmpty(filters.Email))
+                users = users.Where(x => x.Email.ToLower().Contains(filters.Email.ToLower()));
+
+            var pagedUsers = PagedList<object>.Create(users, filters.PageNumber, filters.PageSize);
+
+            return new ResponseData()
             {
-                throw new Exception("Ya existe un usuario registrado con ese correo electrónico.");
-            }
-
-            // R2: Campos obligatorios
-            if (string.IsNullOrWhiteSpace(user.UserName))
-                throw new Exception("El nombre de usuario es obligatorio.");
-
-            if (string.IsNullOrWhiteSpace(user.Email))
-                throw new Exception("El correo electrónico es obligatorio.");
-
-            // R3: Contraseña mínima
-            if (string.IsNullOrWhiteSpace(user.Contrasenia) || user.Contrasenia.Length < 6)
-                throw new Exception("La contraseña debe tener al menos 6 caracteres.");
-
-            // R4: Rol por defecto
-            if (string.IsNullOrEmpty(user.Rol))
-                user.Rol = "Cliente";
-
-            await _userRepository.AddUserAsync(user);
-            return user;
+                Messages = new[] { new Message { Type = "Information", Description = "Usuarios recuperados correctamente." } },
+                Pagination = pagedUsers,
+                StatusCode = HttpStatusCode.OK
+            };
         }
-        public async Task<IEnumerable<User>> GetAllUsersAsync()
+
+        public async Task<IEnumerable<User>> GetAllUsersDapperAsync()
         {
-            return await _userRepository.GetAllUsersAsync();
+            var users = await _unitOfWork.UserRepository.GetAll();
+            return users;
         }
 
         public async Task<User> GetUserByIdAsync(int id)
         {
-            return await _userRepository.GetUserByIdAsync(id);
+            return await _unitOfWork.UserRepository.GetById(id);
+        }
+
+        public async Task<User> AddUserAsync(User user)
+        {
+            if (string.IsNullOrWhiteSpace(user.UserName))
+                throw new BussinessException("El nombre de usuario es obligatorio.");
+
+            if (string.IsNullOrWhiteSpace(user.Email))
+                throw new BussinessException("El correo electrónico es obligatorio.");
+
+            if (string.IsNullOrWhiteSpace(user.Contrasenia) || user.Contrasenia.Length < 6)
+                throw new BussinessException("La contraseña debe tener al menos 6 caracteres.");
+
+            await _unitOfWork.UserRepository.Add(user);
+            await _unitOfWork.SaveChangesAsync();
+            return user;
         }
 
         public async Task UpdateUserAsync(User user)
         {
-            var existing = await _userRepository.GetUserByIdAsync(user.UserId);
-            if (existing == null)
-                throw new Exception("El usuario no existe.");
-
-            existing.UserName = user.UserName;
-            existing.Email = user.Email;
-            existing.Contrasenia = user.Contrasenia;
-            existing.Rol = user.Rol;
-
-            await _userRepository.UpdateUserAsync(existing);
+            await _unitOfWork.UserRepository.Update(user);
+            await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task DeleteUserAsync(User user)
+        public async Task DeleteUserAsync(int id)
         {
-            await _userRepository.DeleteUserAsync(user);
+            await _unitOfWork.UserRepository.Delete(id);
+            await _unitOfWork.SaveChangesAsync();
         }
-
     }
-        
 }

@@ -2,12 +2,11 @@
 
 namespace TicketsAndMerch.Core.Interfaces
 {
-    public interface IPaymentRepository
+    public interface IPaymentRepository : IBaseRepository<Payment>
     {
         Task<IEnumerable<Payment>> GetAllPaymentsAsync();
         Task<Payment> GetPaymentByIdAsync(int id);
-        Task AddPaymentAsync(Payment payment);
-        Task UpdatePaymentAsync(Payment payment);
-        Task DeletePaymentAsync(Payment payment);
+        Task<IEnumerable<Payment>> GetPaymentsByOrderAsync(int orderId);
     }
 }
+

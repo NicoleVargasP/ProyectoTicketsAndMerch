@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace TicketsAndMerch.Core.Entities;
 
-public partial class User
+public partial class User : BaseEntity
 {
-    public int UserId { get; set; }
+   // public int UserId { get; set; }
 
     public string UserName { get; set; } = null!;
 

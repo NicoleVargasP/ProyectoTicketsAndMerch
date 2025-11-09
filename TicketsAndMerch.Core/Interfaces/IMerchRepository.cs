@@ -2,12 +2,10 @@
 
 namespace TicketsAndMerch.Core.Interfaces
 {
-    public interface IMerchRepository
+    public interface IMerchRepository : IBaseRepository<Merch>
     {
         Task<IEnumerable<Merch>> GetAllMerchAsync();
         Task<Merch> GetMerchByIdAsync(int id);
-        Task AddMerchAsync(Merch merch);
-        Task UpdateMerchAsync(Merch merch);
-        Task DeleteMerchAsync(Merch merch);
+        Task<IEnumerable<Merch>> GetMerchInStockAsync();
     }
 }

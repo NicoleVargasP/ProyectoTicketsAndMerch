@@ -1,64 +1,73 @@
-﻿using TicketsAndMerch.Core.Entities;
+﻿using System.Net;
+using TicketsAndMerch.Core.CustomEntities;
+using TicketsAndMerch.Core.Entities;
+using TicketsAndMerch.Core.Exceptions;
 using TicketsAndMerch.Core.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using TicketsAndMerch.Core.QueryFilters;
 
 namespace TicketsAndMerch.Core.Services
 {
     public class TicketService : ITicketService
     {
-        private readonly ITicketRepository _ticketRepository;
-
-        public TicketService(ITicketRepository ticketRepository)
+        private readonly IUnitOfWork _unitOfWork;
+        public TicketService(IUnitOfWork unitOfWork)
         {
-            _ticketRepository = ticketRepository;
+            _unitOfWork = unitOfWork;
         }
 
-        public async Task<IEnumerable<Ticket>> GetAllTicketsAsync()
+        public async Task<ResponseData> GetAllTicketsAsync(TicketQueryFilter filters)
         {
-            return await _ticketRepository.GetAllTicketsAsync();
+            var tickets = await _unitOfWork.TicketRepository.GetAll();
+
+            if (filters.ConcertId != null)
+                tickets = tickets.Where(x => x.ConcertId == filters.ConcertId);
+
+            if (!string.IsNullOrEmpty(filters.TicketType))
+                tickets = tickets.Where(x => x.TicketType.ToLower().Contains(filters.TicketType.ToLower()));
+
+            var pagedTickets = PagedList<object>.Create(tickets, filters.PageNumber, filters.PageSize);
+
+            return new ResponseData()
+            {
+                Messages = new[] { new Message { Type = "Information", Description = "Tickets recuperados correctamente." } },
+                Pagination = pagedTickets,
+                StatusCode = HttpStatusCode.OK
+            };
+        }
+
+        public async Task<IEnumerable<Ticket>> GetAllTicketsDapperAsync()
+        {
+            var tickets = await _unitOfWork.TicketRepository.GetAll();
+            return tickets;
         }
 
         public async Task<Ticket> GetTicketByIdAsync(int id)
         {
-            return await _ticketRepository.GetTicketByIdAsync(id);
+            return await _unitOfWork.TicketRepository.GetById(id);
         }
 
         public async Task AddTicketAsync(Ticket ticket)
         {
             if (ticket.ConcertId <= 0)
-                throw new Exception("El Id del concierto es obligatorio.");
+                throw new BussinessException("El Id del concierto es obligatorio.");
 
             if (ticket.Price <= 0)
-                throw new Exception("El precio del ticket debe ser mayor que 0.");
+                throw new BussinessException("El precio debe ser mayor que 0.");
 
-            if (string.IsNullOrWhiteSpace(ticket.TicketType))
-                throw new Exception("El tipo de ticket es obligatorio.");
-
-            if (ticket.Stock < 0)
-                throw new Exception("El stock no puede ser negativo.");
-
-            await _ticketRepository.AddTicketAsync(ticket);
+            await _unitOfWork.TicketRepository.Add(ticket);
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task UpdateTicketAsync(Ticket ticket)
         {
-            var existing = await _ticketRepository.GetTicketByIdAsync(ticket.TicketId);
-            if (existing == null)
-                throw new Exception("El ticket no existe.");
-
-            existing.ConcertId = ticket.ConcertId;
-            existing.Price = ticket.Price;
-            existing.TicketType = ticket.TicketType;
-            existing.Stock = ticket.Stock;
-
-            await _ticketRepository.UpdateTicketAsync(existing);
+            await _unitOfWork.TicketRepository.Update(ticket);
+            await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task DeleteTicketAsync(Ticket ticket)
+        public async Task DeleteTicketAsync(int id)
         {
-            await _ticketRepository.DeleteTicketAsync(ticket);
+            await _unitOfWork.TicketRepository.Delete(id);
+            await _unitOfWork.SaveChangesAsync();
         }
     }
 }

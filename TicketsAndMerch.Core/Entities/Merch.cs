@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace TicketsAndMerch.Core.Entities;
 
-public partial class Merch
+public partial class Merch: BaseEntity
 {
-    public int MerchId { get; set; }
+    //public int MerchId { get; set; }
 
     public string MerchName { get; set; } = null!;
 

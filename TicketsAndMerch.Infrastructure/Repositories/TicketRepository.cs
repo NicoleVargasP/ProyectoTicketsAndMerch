@@ -5,54 +5,32 @@ using TicketsAndMerch.Infrastructure.Data;
 
 namespace TicketsAndMerch.Infrastructure.Repositories
 {
-    public class TicketRepository : ITicketRepository
+    public class TicketRepository : BaseRepository<Ticket>, ITicketRepository
     {
-        private readonly TicketsAndMerchContext _context;
-
-        public TicketRepository(TicketsAndMerchContext context)
+        public TicketRepository(TicketsAndMerchContext context) : base(context)
         {
-            _context = context;
         }
 
-        // Obtener todos los tickets
         public async Task<IEnumerable<Ticket>> GetAllTicketsAsync()
         {
-            var tickets = await _context.Tickets
-                .Include(t => t.Concert) 
-                .ToListAsync();
-
-            return tickets;
-        }
-
-        // Obtener un ticket por ID
-        public async Task<Ticket> GetTicketByIdAsync(int id)
-        {
-            var ticket = await _context.Tickets
+            return await _entities
                 .Include(t => t.Concert)
-                .FirstOrDefaultAsync(t => t.TicketId == id);
-
-            return ticket;
+                .ToListAsync();
         }
 
-        // Crear un nuevo ticket
-        public async Task AddTicketAsync(Ticket ticket)
+        public async Task<Ticket?> GetTicketByIdAsync(int id)
         {
-            _context.Tickets.Add(ticket);
-            await _context.SaveChangesAsync();
+            return await _entities
+                .Include(t => t.Concert)
+                .FirstOrDefaultAsync(t => t.Id == id);
         }
 
-        // Actualizar un ticket existente
-        public async Task UpdateTicketAsync(Ticket ticket)
+        public async Task<IEnumerable<Ticket>> GetTicketsByConcertAsync(int concertId)
         {
-            _context.Tickets.Update(ticket);
-            await _context.SaveChangesAsync();
-        }
-
-        // Eliminar un ticket
-        public async Task DeleteTicketAsync(Ticket ticket)
-        {
-            _context.Tickets.Remove(ticket);
-            await _context.SaveChangesAsync();
+            return await _entities
+                .Include(t => t.Concert)
+                .Where(t => t.ConcertId == concertId)
+                .ToListAsync();
         }
     }
 }

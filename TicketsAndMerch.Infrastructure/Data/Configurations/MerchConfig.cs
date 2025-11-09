@@ -18,11 +18,11 @@ namespace TicketsAndMerch.Infrastructure.Data.Configurations
             builder.ToTable("Merch");
 
             // Clave primaria
-            builder.HasKey(e => e.MerchId)
+            builder.HasKey(e => e.Id)
                    .HasName("PK_Merch");
 
             // MerchId generado automáticamente
-            builder.Property(e => e.MerchId)
+            builder.Property(e => e.Id)
                    .ValueGeneratedOnAdd();
 
             // MerchName obligatorio, hasta 100 caracteres

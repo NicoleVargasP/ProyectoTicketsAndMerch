@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 
 namespace TicketsAndMerch.Core.Entities;
-public partial class Concert
+public partial class Concert : BaseEntity 
 {
-    public int ConcertId { get; set; }
+    //public int ConcertId { get; set; }
 
     public string Title { get; set; } = null!;
 

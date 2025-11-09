@@ -1,8 +1,8 @@
 [
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.ConcertController",
-    "Method": "GetAllConcerts",
-    "RelativePath": "api/Concert/dto/mapper",
+    "Method": "GetConcertsDtoDapper",
+    "RelativePath": "api/Concert/dto/dapper",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -11,7 +11,81 @@
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.ConcertController",
-    "Method": "CreateConcert",
+    "Method": "GetConcertsDtoMapper",
+    "RelativePath": "api/Concert/dto/mapper",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Location",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Date",
+        "Type": "System.Nullable\u00601[[System.DateOnly, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "idAux",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TicketsAndMerch.Api.Responses.ApiResponse\u00601[[System.Collections.Generic.IEnumerable\u00601[[TicketsAndMerch.Infrastructure.DTOs.ConcertDto, TicketsAndMerch.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.ConcertController",
+    "Method": "InsertConcertDtoMapper",
     "RelativePath": "api/Concert/dto/mapper",
     "HttpMethod": "POST",
     "IsController": true,
@@ -27,7 +101,7 @@
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.ConcertController",
-    "Method": "GetConcertById",
+    "Method": "GetConcertDtoById",
     "RelativePath": "api/Concert/dto/mapper/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -43,7 +117,7 @@
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.ConcertController",
-    "Method": "UpdateConcert",
+    "Method": "UpdateConcertDtoMapper",
     "RelativePath": "api/Concert/dto/mapper/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -64,7 +138,7 @@
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.ConcertController",
-    "Method": "DeleteConcert",
+    "Method": "DeleteConcertDtoMapper",
     "RelativePath": "api/Concert/dto/mapper/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -80,8 +154,8 @@
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.MerchController",
-    "Method": "GetAllMerchDtoMapper",
-    "RelativePath": "api/Merch/dto/mapper",
+    "Method": "GetMerchDtoDapper",
+    "RelativePath": "api/Merch/dto/dapper",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -90,7 +164,86 @@
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.MerchController",
-    "Method": "InsertMerchDtoMapper",
+    "Method": "GetMerchDtoMapper",
+    "RelativePath": "api/Merch/dto/mapper",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "MerchName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TypeMerch",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MinPrice",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "MaxPrice",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "idAux",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TicketsAndMerch.Api.Responses.ApiResponse\u00601[[System.Collections.Generic.IEnumerable\u00601[[TicketsAndMerch.Infrastructure.DTOs.MerchDto, TicketsAndMerch.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.MerchController",
+    "Method": "AddMerchDtoMapper",
     "RelativePath": "api/Merch/dto/mapper",
     "HttpMethod": "POST",
     "IsController": true,
@@ -106,7 +259,7 @@
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.MerchController",
-    "Method": "GetMerchDtoMapperById",
+    "Method": "GetMerchDtoById",
     "RelativePath": "api/Merch/dto/mapper/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -159,13 +312,92 @@
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.OrderController",
-    "Method": "GetAllOrdersDtoMapper",
-    "RelativePath": "api/Order/dto/mapper",
+    "Method": "GetOrdersDtoDapper",
+    "RelativePath": "api/Order/dto/dapper",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.OrderController",
+    "Method": "GetOrdersDtoMapper",
+    "RelativePath": "api/Order/dto/mapper",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "State",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "StartDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "EndDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "idAux",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TicketsAndMerch.Api.Responses.ApiResponse\u00601[[System.Collections.Generic.IEnumerable\u00601[[TicketsAndMerch.Infrastructure.DTOs.OrderDto, TicketsAndMerch.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.OrderController",
@@ -185,7 +417,7 @@
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.OrderController",
-    "Method": "GetOrderDtoMapperId",
+    "Method": "GetOrderDtoById",
     "RelativePath": "api/Order/dto/mapper/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -238,13 +470,92 @@
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.PaymentController",
-    "Method": "GetPaymentsDtoMapper",
-    "RelativePath": "api/Payment/dto/mapper",
+    "Method": "GetPaymentsDtoDapper",
+    "RelativePath": "api/Payment/dto/dapper",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.PaymentController",
+    "Method": "GetPaymentsDtoMapper",
+    "RelativePath": "api/Payment/dto/mapper",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Method",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PaymentState",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "StartDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "EndDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "idAux",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TicketsAndMerch.Api.Responses.ApiResponse\u00601[[System.Collections.Generic.IEnumerable\u00601[[TicketsAndMerch.Infrastructure.DTOs.PaymentDto, TicketsAndMerch.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.PaymentController",
@@ -317,13 +628,92 @@
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.TicketController",
-    "Method": "GetTicketsDtoMapper",
-    "RelativePath": "api/Ticket/dto/mapper",
+    "Method": "GetTicketsDtoDapper",
+    "RelativePath": "api/Ticket/dto/dapper",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.TicketController",
+    "Method": "GetTicketsDtoMapper",
+    "RelativePath": "api/Ticket/dto/mapper",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ConcertId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "TicketType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MinPrice",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "MaxPrice",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "idAux",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TicketsAndMerch.Api.Responses.ApiResponse\u00601[[System.Collections.Generic.IEnumerable\u00601[[TicketsAndMerch.Infrastructure.DTOs.TicketDto, TicketsAndMerch.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.TicketController",
@@ -343,7 +733,7 @@
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.TicketController",
-    "Method": "GetTicketDtoMapperId",
+    "Method": "GetTicketDtoMapperById",
     "RelativePath": "api/Ticket/dto/mapper/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -396,13 +786,87 @@
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.UserController",
-    "Method": "GetUsersDtoMapper",
-    "RelativePath": "api/User/dto/mapper",
+    "Method": "GetUsersDtoDapper",
+    "RelativePath": "api/User/dto/dapper",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.UserController",
+    "Method": "GetUsersDtoMapper",
+    "RelativePath": "api/User/dto/mapper",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Rol",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "idAux",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TicketsAndMerch.Api.Responses.ApiResponse\u00601[[System.Collections.Generic.IEnumerable\u00601[[TicketsAndMerch.Infrastructure.DTOs.UserDto, TicketsAndMerch.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.UserController",
@@ -487,7 +951,26 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "TicketsAndMerch.Api.Responses.ApiResponse\u00601[[TicketsAndMerch.Core.Entities.User, TicketsAndMerch.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ]
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.WeatherForecastController",

@@ -17,11 +17,11 @@ namespace TicketsAndMerch.Infrastructure.Data.Configurations
             builder.ToTable("Tickets");
 
             // Clave primaria
-            builder.HasKey(e => e.TicketId)
+            builder.HasKey(e => e.Id)
                    .HasName("PK_Tickets");
 
             // TicketId generado automáticamente
-            builder.Property(e => e.TicketId)
+            builder.Property(e => e.Id)
                    .ValueGeneratedOnAdd();
 
             // Precio con dos decimales

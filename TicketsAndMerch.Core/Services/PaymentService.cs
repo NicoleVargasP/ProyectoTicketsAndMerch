@@ -1,63 +1,70 @@
-﻿using TicketsAndMerch.Core.Entities;
+﻿using System.Net;
+using TicketsAndMerch.Core.CustomEntities;
+using TicketsAndMerch.Core.Entities;
+using TicketsAndMerch.Core.Exceptions;
 using TicketsAndMerch.Core.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using TicketsAndMerch.Core.QueryFilters;
 
 namespace TicketsAndMerch.Core.Services
 {
     public class PaymentService : IPaymentService
     {
-        private readonly IPaymentRepository _paymentRepository;
-
-        public PaymentService(IPaymentRepository paymentRepository)
+        private readonly IUnitOfWork _unitOfWork;
+        public PaymentService(IUnitOfWork unitOfWork)
         {
-            _paymentRepository = paymentRepository;
+            _unitOfWork = unitOfWork;
         }
 
-        public async Task<IEnumerable<Payment>> GetAllPaymentsAsync()
+        public async Task<ResponseData> GetAllPaymentsAsync(PaymentQueryFilter filters)
         {
-            return await _paymentRepository.GetAllPaymentsAsync();
+            var payments = await _unitOfWork.PaymentRepository.GetAll();
+
+            if (!string.IsNullOrEmpty(filters.Method))
+                payments = payments.Where(x => x.Method.ToLower().Contains(filters.Method.ToLower()));
+
+            var pagedPayments = PagedList<object>.Create(payments, filters.PageNumber, filters.PageSize);
+
+            return new ResponseData()
+            {
+                Messages = new[] { new Message { Type = "Information", Description = "Pagos recuperados correctamente." } },
+                Pagination = pagedPayments,
+                StatusCode = HttpStatusCode.OK
+            };
+        }
+
+        public async Task<IEnumerable<Payment>> GetAllPaymentsDapperAsync()
+        {
+            var payments = await _unitOfWork.PaymentRepository.GetAll();
+            return payments;
         }
 
         public async Task<Payment> GetPaymentByIdAsync(int id)
         {
-            return await _paymentRepository.GetPaymentByIdAsync(id);
+            return await _unitOfWork.PaymentRepository.GetById(id);
         }
 
         public async Task AddPaymentAsync(Payment payment)
         {
             if (string.IsNullOrWhiteSpace(payment.Method))
-                throw new Exception("El método de pago es obligatorio.");
+                throw new BussinessException("El método de pago es obligatorio.");
 
             if (payment.OrderAmount <= 0)
-                throw new Exception("El monto debe ser mayor que 0.");
+                throw new BussinessException("El monto debe ser mayor que 0.");
 
-            if (string.IsNullOrWhiteSpace(payment.PaymentState))
-                throw new Exception("El estado del pago es obligatorio.");
-
-            payment.PaymentDate = payment.PaymentDate == default ? DateTime.Now : payment.PaymentDate;
-
-            await _paymentRepository.AddPaymentAsync(payment);
+            await _unitOfWork.PaymentRepository.Add(payment);
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task UpdatePaymentAsync(Payment payment)
         {
-            var existing = await _paymentRepository.GetPaymentByIdAsync(payment.PaymentId);
-            if (existing == null)
-                throw new Exception("El pago no existe.");
-
-            existing.Method = payment.Method;
-            existing.PaymentDate = payment.PaymentDate;
-            existing.OrderAmount = payment.OrderAmount;
-            existing.PaymentState = payment.PaymentState;
-
-            await _paymentRepository.UpdatePaymentAsync(existing);
+            await _unitOfWork.PaymentRepository.Update(payment);
+            await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task DeletePaymentAsync(Payment payment)
+        public async Task DeletePaymentAsync(int id)
         {
-            await _paymentRepository.DeletePaymentAsync(payment);
+            await _unitOfWork.PaymentRepository.Delete(id);
+            await _unitOfWork.SaveChangesAsync();
         }
     }
 }

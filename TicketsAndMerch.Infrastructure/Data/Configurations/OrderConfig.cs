@@ -17,11 +17,11 @@ namespace TicketsAndMerch.Infrastructure.Data.Configurations
             builder.ToTable("Orders");
 
             // Clave primaria
-            builder.HasKey(e => e.OrderId)
+            builder.HasKey(e => e.Id)
                    .HasName("PK_Orders");
 
             // Generar automáticamente el ID
-            builder.Property(e => e.OrderId)
+            builder.Property(e => e.Id)
                    .ValueGeneratedOnAdd();
 
             // Fecha del pedido

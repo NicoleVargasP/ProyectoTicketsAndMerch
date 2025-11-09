@@ -2,12 +2,10 @@
 
 namespace TicketsAndMerch.Core.Interfaces
 {
-    public interface ITicketRepository
+    public interface ITicketRepository : IBaseRepository<Ticket>
     {
         Task<IEnumerable<Ticket>> GetAllTicketsAsync();
-        Task<Ticket> GetTicketByIdAsync(int id);
-        Task AddTicketAsync(Ticket ticket);
-        Task UpdateTicketAsync(Ticket ticket);
-        Task DeleteTicketAsync(Ticket ticket);
+        Task<Ticket?> GetTicketByIdAsync(int id);
+        Task<IEnumerable<Ticket>> GetTicketsByConcertAsync(int concertId);
     }
 }
