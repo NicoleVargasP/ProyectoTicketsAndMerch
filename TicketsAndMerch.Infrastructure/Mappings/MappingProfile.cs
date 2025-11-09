@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using TicketsAndMerch.Core.CustomEntities;
 using TicketsAndMerch.Core.Entities;
 using TicketsAndMerch.Infrastructure.DTOs;
 
@@ -30,6 +31,11 @@ namespace TicketsAndMerch.Infrastructure.Mappings
             
             CreateMap<User, UserDto>();
             CreateMap<UserDto, User>();
+
+            CreateMap<BuyTicketDto, BuyTicket>()
+             .ForMember(dest => dest.PurchaseDate, opt => opt.MapFrom(src => DateTime.Now));
+
+            CreateMap<BuyTicket, BuyTicketDto>();
         }
     }
 }

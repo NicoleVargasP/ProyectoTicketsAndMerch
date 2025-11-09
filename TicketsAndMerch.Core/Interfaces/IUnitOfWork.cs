@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Threading.Tasks;
+using TicketsAndMerch.Core.CustomEntities;
 
 namespace TicketsAndMerch.Core.Interfaces
 {
@@ -13,6 +14,7 @@ namespace TicketsAndMerch.Core.Interfaces
         IBaseRepository<Payment> PaymentRepository { get; }
         IBaseRepository<Ticket> TicketRepository { get; }
         IBaseRepository<User> UserRepository { get; }
+        IBaseRepository<BuyTicket> BuyTicketRepository { get; }
 
         IUserRepository UserRepositoryExtra { get; }
         IConcertRepository ConcertRepositoryExtra { get; }
@@ -20,6 +22,7 @@ namespace TicketsAndMerch.Core.Interfaces
         IPaymentRepository PaymentRepositoryExtra { get; }
         IOrderRepository  OrderRepositoryExtra { get; }
         IMerchRepository MerchRepositoryExtra { get; }
+        IBuyTicketRepository BuyTicketRepositoryExtra { get; }
         void SaveChanges();
         Task SaveChangesAsync();
 

@@ -1,21 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TicketsAndMerch.Core.Entities;
 
 public partial class Order : BaseEntity
 {
-   // public int OrderId { get; set; }
+    // public int OrderId { get; set; }
 
     public int UserId { get; set; }
+    [ForeignKey("UserId")]
 
     public DateTime? DateOrder { get; set; }
 
     public string? State { get; set; }
 
     public int? MerchId { get; set; }
+    [ForeignKey("MerchId")]
 
     public int? TicketId { get; set; }
+    [ForeignKey("TicketId")]
 
     public decimal? OrderAmount { get; set; }
 

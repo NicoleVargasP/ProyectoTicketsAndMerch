@@ -4,6 +4,30 @@
         <name>TicketsAndMerch.Api</name>
     </assembly>
     <members>
+        <member name="M:TicketsAndMerch.Api.Controllers.BuyTicketController.BuyTicketDtoMapper(TicketsAndMerch.Infrastructure.DTOs.BuyTicketDto)">
+            <summary>
+            Permite registrar una compra de ticket(s) para un concierto disponible.
+            </summary>
+            <remarks>
+            Valida usuario, concierto y disponibilidad de entradas.  
+            Genera la orden y registra un pago con estado “Pendiente”.
+            </remarks>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.BuyTicketController.GetAllBuyTicketsDapper">
+            <summary>
+            Recupera todas las compras de tickets mediante Dapper (lectura optimizada).
+            </summary>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.BuyTicketController.GetBuyTicketById(System.Int32)">
+            <summary>
+            Recupera los detalles de una compra específica.
+            </summary>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.BuyTicketController.DeleteBuyTicket(System.Int32)">
+            <summary>
+            Elimina una compra de ticket (solo para pruebas o mantenimiento).
+            </summary>
+        </member>
         <member name="M:TicketsAndMerch.Api.Controllers.ConcertController.GetConcertsDtoMapper(TicketsAndMerch.Core.QueryFilters.ConcertQueryFilter,System.Int32)">
             <summary>
             Recupera una lista paginada de conciertos como DTOs según filtros

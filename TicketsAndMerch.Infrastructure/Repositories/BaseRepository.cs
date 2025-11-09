@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TicketsAndMerch.Core.Entities;
+using TicketsAndMerch.Core.CustomEntities;
 using TicketsAndMerch.Core.Interfaces;
 using TicketsAndMerch.Infrastructure.Data;
 

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Storage;
 using System.Data;
 using System.Threading.Tasks;
+using TicketsAndMerch.Core.CustomEntities;
 using TicketsAndMerch.Core.Entities;
 using TicketsAndMerch.Core.Interfaces;
 using TicketsAndMerch.Infrastructure.Data;
@@ -21,6 +22,7 @@ namespace TicketsAndMerch.Infrastructure.Repositories
         private IBaseRepository<Payment>? _paymentRepository;
         private IBaseRepository<Ticket>? _ticketRepository;
         private IBaseRepository<User>? _userRepository;
+        private IBaseRepository<BuyTicket>? _buyTicketRepository;
 
         private IUserRepository _userRepositoryExtra;
         private IConcertRepository _concertRepositoryExtra;
@@ -28,6 +30,8 @@ namespace TicketsAndMerch.Infrastructure.Repositories
         private IPaymentRepository _paymentRepositoryExtra;
         private IOrderRepository _orderRepositoryExtra;
         private IMerchRepository _merchRepositoryExtra;
+        private IBuyTicketRepository _buyTicketRepositoryExtra;
+
         public UnitOfWork(TicketsAndMerchContext context, IDapperContext dapper)
         {
             _context = context;
@@ -50,6 +54,8 @@ namespace TicketsAndMerch.Infrastructure.Repositories
             _ticketRepository ??= new BaseRepository<Ticket>(_context);
         public IBaseRepository<User> UserRepository =>
             _userRepository ??= new BaseRepository<User>(_context);
+        public IBaseRepository<BuyTicket> BuyTicketRepository =>
+            _buyTicketRepository ??= new BaseRepository<BuyTicket>(_context);
 
 
         public IUserRepository UserRepositoryExtra =>
@@ -64,7 +70,8 @@ namespace TicketsAndMerch.Infrastructure.Repositories
             _orderRepositoryExtra ??= new OrderRepository(_context, _dapper);
         public IMerchRepository MerchRepositoryExtra =>
             _merchRepositoryExtra ??= new MerchRepository(_context, _dapper);
-
+        public IBuyTicketRepository BuyTicketRepositoryExtra =>
+            _buyTicketRepositoryExtra ??= new BuyTicketRepository(_context, _dapper);
 
 
 

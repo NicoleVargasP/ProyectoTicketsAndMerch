@@ -1,5 +1,96 @@
 [
   {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.BuyTicketController",
+    "Method": "GetAllBuyTicketsDapper",
+    "RelativePath": "api/BuyTicket/dto/dapper",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.BuyTicketController",
+    "Method": "BuyTicketDtoMapper",
+    "RelativePath": "api/BuyTicket/dto/mapper",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "buyTicketDto",
+        "Type": "TicketsAndMerch.Infrastructure.DTOs.BuyTicketDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TicketsAndMerch.Api.Responses.ApiResponse\u00601[[TicketsAndMerch.Infrastructure.DTOs.BuyTicketDto, TicketsAndMerch.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.BuyTicketController",
+    "Method": "GetBuyTicketById",
+    "RelativePath": "api/BuyTicket/dto/mapper/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.BuyTicketController",
+    "Method": "DeleteBuyTicket",
+    "RelativePath": "api/BuyTicket/dto/mapper/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TicketsAndMerch.Api.Controllers.ConcertController",
     "Method": "GetConcertsDtoDapper",
     "RelativePath": "api/Concert/dto/dapper",

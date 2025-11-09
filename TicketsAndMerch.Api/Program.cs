@@ -32,7 +32,8 @@ builder.Services.AddScoped<ITicketService, TicketService>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IUserService, UserService>();
-
+//Caso de uso elm 3
+builder.Services.AddScoped<IBuyTicketService, BuyTicketService>();
 
 builder.Services.AddControllers(options =>
 {
@@ -51,6 +52,8 @@ builder.Services.AddControllers(options =>
 
 builder.Services.AddValidatorsFromAssemblyContaining<UserDtoValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<GetByIdRequestValidator>();
+//Caso de uso 
+builder.Services.AddValidatorsFromAssemblyContaining<BuyTicketDtoValidator>(); 
 
 // Servicio general de validaciones
 builder.Services.AddScoped<IValidationService, ValidationService>();
