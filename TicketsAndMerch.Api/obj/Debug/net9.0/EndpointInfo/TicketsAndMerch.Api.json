@@ -1644,6 +1644,18 @@
         }
       }
     },
+    "/api/Token/TestConeccion": {
+      "get": {
+        "tags": [
+          "Token"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Token/Config": {
       "get": {
         "tags": [

@@ -918,6 +918,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.TokenController",
+    "Method": "TestConeccion",
+    "RelativePath": "api/Token/TestConeccion",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TicketsAndMerch.Api.Controllers.UserController",
     "Method": "GetUsersDtoDapper",
     "RelativePath": "api/User/dto/dapper",
