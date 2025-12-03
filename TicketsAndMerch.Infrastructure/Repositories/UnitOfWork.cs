@@ -12,6 +12,7 @@ namespace TicketsAndMerch.Infrastructure.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private readonly TicketsAndMerchContext _context;
+       public readonly ISecurityRepository _securityRepositoryExtra;
         private readonly IDapperContext _dapper; // opcional, si usas Dapper
         private IDbContextTransaction? _efTransaction;
 
@@ -23,6 +24,7 @@ namespace TicketsAndMerch.Infrastructure.Repositories
         private IBaseRepository<Ticket>? _ticketRepository;
         private IBaseRepository<User>? _userRepository;
         private IBaseRepository<BuyTicket>? _buyTicketRepository;
+        //private IBaseRepository<Security>? _securityRepository;
 
         private IUserRepository _userRepositoryExtra;
         private IConcertRepository _concertRepositoryExtra;
@@ -31,6 +33,7 @@ namespace TicketsAndMerch.Infrastructure.Repositories
         private IOrderRepository _orderRepositoryExtra;
         private IMerchRepository _merchRepositoryExtra;
         private IBuyTicketRepository _buyTicketRepositoryExtra;
+       // private ISecurityRepository _securityRepositoryExtra;
 
         public UnitOfWork(TicketsAndMerchContext context, IDapperContext dapper)
         {
@@ -56,6 +59,8 @@ namespace TicketsAndMerch.Infrastructure.Repositories
             _userRepository ??= new BaseRepository<User>(_context);
         public IBaseRepository<BuyTicket> BuyTicketRepository =>
             _buyTicketRepository ??= new BaseRepository<BuyTicket>(_context);
+       /* public IBaseRepository<Security> SecurityRepository =>
+          _securityRepository ?? new BaseRepository<Security>(_context);*/
 
 
         public IUserRepository UserRepositoryExtra =>
@@ -72,6 +77,8 @@ namespace TicketsAndMerch.Infrastructure.Repositories
             _merchRepositoryExtra ??= new MerchRepository(_context, _dapper);
         public IBuyTicketRepository BuyTicketRepositoryExtra =>
             _buyTicketRepositoryExtra ??= new BuyTicketRepository(_context, _dapper);
+        public ISecurityRepository SecurityRepositoryExtra =>
+          _securityRepositoryExtra ?? new SecurityRepository(_context, _dapper);
 
 
 

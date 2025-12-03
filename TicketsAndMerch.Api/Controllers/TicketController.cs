@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using System.Net;
 using TicketsAndMerch.Api.Responses;
 using TicketsAndMerch.Core.CustomEntities;
@@ -11,6 +12,7 @@ using TicketsAndMerch.Infrastructure.Validators;
 
 namespace TicketsAndMerch.Api.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class TicketController : ControllerBase

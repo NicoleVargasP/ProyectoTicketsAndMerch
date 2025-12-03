@@ -36,6 +36,10 @@ namespace TicketsAndMerch.Infrastructure.Mappings
              .ForMember(dest => dest.PurchaseDate, opt => opt.MapFrom(src => DateTime.Now));
 
             CreateMap<BuyTicket, BuyTicketDto>();
+
+            CreateMap<Security, SecurityDto>();
+            CreateMap<SecurityDto, Security>();
+
         }
     }
 }

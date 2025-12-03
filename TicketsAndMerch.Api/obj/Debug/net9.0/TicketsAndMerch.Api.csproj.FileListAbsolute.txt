@@ -15,7 +15,6 @@ D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\bin\Debug\net9.0\Humanizer.dll
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\bin\Debug\net9.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\bin\Debug\net9.0\Microsoft.Build.Locator.dll
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
@@ -187,3 +186,4 @@ D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\bin\Debug\net9.0\Pomelo.EntityFrameworkCore.MySql.dll
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\bin\Debug\net9.0\TicketsAndMerch.Api.xml
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\obj\Debug\net9.0\TicketsAndMerch.Api.xml
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Api\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

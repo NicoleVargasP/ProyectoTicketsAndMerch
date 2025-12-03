@@ -718,6 +718,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.SecurityController",
+    "Method": "Post",
+    "RelativePath": "api/Security",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "securityDto",
+        "Type": "TicketsAndMerch.Infrastructure.DTOs.SecurityDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TicketsAndMerch.Api.Controllers.TicketController",
     "Method": "GetTicketsDtoDapper",
     "RelativePath": "api/Ticket/dto/dapper",
@@ -873,6 +889,32 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.TokenController",
+    "Method": "Authentication",
+    "RelativePath": "api/Token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userLogin",
+        "Type": "TicketsAndMerch.Core.Entities.UserLogin",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.TokenController",
+    "Method": "GetConfig",
+    "RelativePath": "api/Token/Config",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -1057,6 +1099,22 @@
         "StatusCode": 400
       }
     ]
+  },
+  {
+    "ContainingType": "TicketsAndMerch.Api.Controllers.ConcertV2Controller",
+    "Method": "Get",
+    "RelativePath": "api/v{version}/concert",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "TicketsAndMerch.Api.Controllers.WeatherForecastController",
