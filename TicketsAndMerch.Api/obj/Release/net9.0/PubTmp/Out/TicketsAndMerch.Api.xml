@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TicketsAndMerch.Api</name>
+    </assembly>
+    <members>
+        <member name="M:TicketsAndMerch.Api.Controllers.BuyTicketController.BuyTicketDtoMapper(TicketsAndMerch.Infrastructure.DTOs.BuyTicketDto)">
+            <summary>
+            Permite registrar una compra de ticket(s) para un concierto disponible.
+            </summary>
+            <remarks>
+            Valida usuario, concierto y disponibilidad de entradas.  
+            Genera la orden y registra un pago con estado “Pendiente”.
+            </remarks>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.BuyTicketController.GetAllBuyTicketsDapper">
+            <summary>
+            Recupera todas las compras de tickets mediante Dapper (lectura optimizada).
+            </summary>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.BuyTicketController.GetBuyTicketById(System.Int32)">
+            <summary>
+            Recupera los detalles de una compra específica.
+            </summary>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.BuyTicketController.DeleteBuyTicket(System.Int32)">
+            <summary>
+            Elimina una compra de ticket (solo para pruebas o mantenimiento).
+            </summary>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.ConcertController.GetConcertsDtoMapper(TicketsAndMerch.Core.QueryFilters.ConcertQueryFilter,System.Int32)">
+            <summary>
+            Recupera una lista paginada de conciertos como DTOs según filtros
+            </summary>
+            <remarks>
+            Convierte las entidades Concert en ConcertDto y devuelve la respuesta paginada.
+            </remarks>
+            <param name="concertQueryFilter">Filtros de consulta y paginación</param>
+            <param name="idAux">Identificador auxiliar (opcional, se mantiene por compatibilidad con el ejemplo)</param>
+            <returns>Lista paginada de ConcertDto</returns>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.ConcertController.GetConcertsDtoDapper">
+            <summary>
+            Recupera conciertos usando Dapper (lectura optimizada).
+            </summary>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.MerchController.GetMerchDtoMapper(TicketsAndMerch.Core.QueryFilters.MerchQueryFilter,System.Int32)">
+            <summary>
+            Recupera una lista paginada de productos de merchandising según filtros.
+            </summary>
+            <remarks>
+            Este método convierte las entidades <see cref="T:TicketsAndMerch.Core.Entities.Merch"/> en <see cref="T:TicketsAndMerch.Infrastructure.DTOs.MerchDto"/> 
+            y devuelve una respuesta con metadatos de paginación.
+            </remarks>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.MerchController.GetMerchDtoDapper">
+            <summary>
+            Recupera productos de merchandising utilizando Dapper (consulta optimizada).
+            </summary>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.OrderController.GetOrdersDtoMapper(TicketsAndMerch.Core.QueryFilters.OrderQueryFilter,System.Int32)">
+            <summary>
+            Recupera una lista paginada de órdenes registradas según filtros.
+            </summary>
+            <remarks>
+            Este método convierte las entidades <see cref="T:TicketsAndMerch.Core.Entities.Order"/> en <see cref="T:TicketsAndMerch.Infrastructure.DTOs.OrderDto"/> 
+            y devuelve la información paginada con metadatos.
+            </remarks>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.OrderController.GetOrdersDtoDapper">
+            <summary>
+            Recupera las órdenes usando Dapper (consulta optimizada).
+            </summary>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.PaymentController.GetPaymentsDtoMapper(TicketsAndMerch.Core.QueryFilters.PaymentQueryFilter,System.Int32)">
+            <summary>
+            Recupera una lista paginada de pagos según filtros aplicados.
+            </summary>
+            <remarks>
+            Convierte las entidades <see cref="T:TicketsAndMerch.Core.Entities.Payment"/> en <see cref="T:TicketsAndMerch.Infrastructure.DTOs.PaymentDto"/> 
+            y devuelve los resultados en formato paginado.
+            </remarks>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.PaymentController.GetPaymentsDtoDapper">
+            <summary>
+            Recupera todos los pagos utilizando Dapper (consulta optimizada).
+            </summary>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.TicketController.GetTicketsDtoMapper(TicketsAndMerch.Core.QueryFilters.TicketQueryFilter,System.Int32)">
+            <summary>
+            Recupera una lista paginada de tickets según filtros aplicados.
+            </summary>
+            <remarks>
+            Este método permite aplicar filtros (por concierto, tipo, precio o stock) y devuelve los resultados paginados.
+            </remarks>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.TicketController.GetTicketsDtoDapper">
+            <summary>
+            Recupera todos los tickets usando Dapper (consulta optimizada).
+            </summary>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.UserController.GetUsersDtoMapper(TicketsAndMerch.Core.QueryFilters.UserQueryFilter)">
+            <summary>
+            Recupera una lista paginada de usuarios aplicando filtros.
+            </summary>
+            <remarks>
+            Permite filtrar por nombre, rol, email o rango de fecha de registro.
+            Devuelve los resultados paginados junto con mensajes de estado.
+            </remarks>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.UserController.GetUsersDtoDapper">
+            <summary>
+            Recupera todos los usuarios mediante Dapper (versión optimizada de lectura).
+            </summary>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.UserController.Register(TicketsAndMerch.Infrastructure.DTOs.UserDto)">
+            <summary>
+            Registra un nuevo usuario en el sistema validando correo y contraseña.
+            </summary>
+        </member>
+    </members>
+</doc>

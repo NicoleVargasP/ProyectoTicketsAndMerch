@@ -91,6 +91,25 @@ namespace TicketsAndMerch.Api.Controllers
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
+        [HttpGet("TestConeccion")]
+        public async Task<IActionResult> TestConeccion()
+        {
+            try
+            {
+                var result = new
+                {
+                    ConnectionMySql = _configuration["ConnectionStrings:ConnectionMySql"],
+                    ConnectionSqlServer = _configuration["ConnectionStrings:ConnectionSqlServer"]
+                };
+
+                return Ok(result);
+            }
+            catch (Exception err)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, err.Message);
+            }
+        }
+
         [HttpGet("Config")]
         public async Task<IActionResult> GetConfig()
         {
