@@ -11,7 +11,7 @@ using TicketsAndMerch.Infrastructure.Validators;
 
 namespace TicketsAndMerch.Api.Controllers
 {
-    [Authorize]
+   
     [ApiController]
     [Route("api/[controller]")]
     public class BuyTicketController : ControllerBase
@@ -93,6 +93,7 @@ namespace TicketsAndMerch.Api.Controllers
         /// <summary>
         /// Recupera todas las compras de tickets mediante Dapper (lectura optimizada).
         /// </summary>
+        [Authorize]
         [HttpGet("dto/dapper")]
         public async Task<IActionResult> GetAllBuyTicketsDapper()
         {
@@ -105,6 +106,7 @@ namespace TicketsAndMerch.Api.Controllers
         /// <summary>
         /// Recupera los detalles de una compra específica.
         /// </summary>
+        [Authorize]
         [HttpGet("dto/mapper/{id}")]
         public async Task<IActionResult> GetBuyTicketById(int id)
         {
