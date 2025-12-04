@@ -27,7 +27,7 @@ namespace TicketsAndMerch.Api.Controllers
             _passwordService = passwordService;
         }
 
-        [Authorize(Roles = $"{nameof(RoleType.Administrator)},{nameof(RoleType.User)}")]
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Post(SecurityDto securityDto)
         {
