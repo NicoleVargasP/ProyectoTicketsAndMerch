@@ -27,5 +27,13 @@ namespace TicketsAndMerch.Infrastructure.Queries
             GROUP BY c.Id, c.Title, c.Location, c.Date
             HAVING COUNT(t.Id) > 0
             ORDER BY c.Date DESC;";
+        //Caso de uso
+        public static string GetAvailableConcertsQuery = @"
+            SELECT Id, Title, Description, Location, Date, AvailableTickets
+            FROM Concerts
+            WHERE Date > CONVERT(date, GETDATE())
+              AND AvailableTickets > 0
+            ORDER BY Date ASC;";
+
     }
 }

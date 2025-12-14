@@ -55,5 +55,25 @@ namespace TicketsAndMerch.Infrastructure.Repositories
                 throw new Exception(ex.Message);
             }
         }
+        public async Task<IEnumerable<Concert>> GetAvailableConcertsAsync()
+        {
+            try
+            {
+                var sql = _dapper.Provider switch
+                {
+                    DatabaseProvider.SqlServer => ConcertQueries.GetAvailableConcertsQuery,
+
+                    DatabaseProvider.MySql => @"",
+                    _ => throw new NotSupportedException("Provider no soportado")
+                };
+
+                return await _dapper.QueryAsync<Concert>(sql);
+            }
+            catch (Exception ex)
+            {
+throw new Exception(ex.Message);
+            }
+        }
+
     }
 }

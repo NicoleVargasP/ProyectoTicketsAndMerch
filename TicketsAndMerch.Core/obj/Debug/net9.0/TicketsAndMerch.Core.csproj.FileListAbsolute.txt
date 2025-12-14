@@ -1,13 +1,13 @@
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\bin\Debug\net9.0\TicketsAndMerch.Core.deps.json
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\bin\Debug\net9.0\TicketsAndMerch.Core.dll
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\bin\Debug\net9.0\TicketsAndMerch.Core.pdb
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\TicketsAndMerch.Core.csproj.AssemblyReference.cache
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\TicketsAndMerch.Core.GeneratedMSBuildEditorConfig.editorconfig
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\TicketsAndMerch.Core.AssemblyInfoInputs.cache
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\TicketsAndMerch.Core.AssemblyInfo.cs
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\TicketsAndMerch.Core.csproj.CoreCompileInputs.cache
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\TicketsAndMerch.Core.sourcelink.json
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\TicketsAndMerch.Core.dll
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\refint\TicketsAndMerch.Core.dll
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\TicketsAndMerch.Core.pdb
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\ref\TicketsAndMerch.Core.dll
-D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\TicketsAndMerch.Core.sourcelink.json
-D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Core\obj\Debug\net9.0\TicketsAndMerch.Core.csproj.AssemblyReference.cache

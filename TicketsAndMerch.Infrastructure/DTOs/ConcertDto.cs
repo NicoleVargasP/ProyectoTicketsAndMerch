@@ -10,7 +10,7 @@
 
         public string Location { get; set; } = null!;
 
-        public DateOnly Date { get; set; }
+        public DateTime Date { get; set; }
 
         public int? AvailableTickets { get; set; }
     }

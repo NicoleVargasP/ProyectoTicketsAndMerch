@@ -4,6 +4,11 @@
         <name>TicketsAndMerch.Api</name>
     </assembly>
     <members>
+        <member name="M:TicketsAndMerch.Api.Controllers.BuyMerchController.BuyMerchDtoMapper(TicketsAndMerch.Infrastructure.DTOs.BuyMerchDto)">
+            <summary>
+            Permite registrar una compra de merchandising.
+            </summary>
+        </member>
         <member name="M:TicketsAndMerch.Api.Controllers.BuyTicketController.BuyTicketDtoMapper(TicketsAndMerch.Infrastructure.DTOs.BuyTicketDto)">
             <summary>
             Permite registrar una compra de ticket(s) para un concierto disponible.
@@ -63,7 +68,7 @@
             Recupera una lista paginada de órdenes registradas según filtros.
             </summary>
             <remarks>
-            Este método convierte las entidades <see cref="T:TicketsAndMerch.Core.Entities.Order"/> en <see cref="T:TicketsAndMerch.Infrastructure.DTOs.OrderDto"/> 
+            Este método convierte las entidades <see cref="T:Order"/> en <see cref="T:TicketsAndMerch.Infrastructure.DTOs.OrderDto"/> 
             y devuelve la información paginada con metadatos.
             </remarks>
         </member>
@@ -116,6 +121,11 @@
         <member name="M:TicketsAndMerch.Api.Controllers.UserController.Register(TicketsAndMerch.Infrastructure.DTOs.UserDto)">
             <summary>
             Registra un nuevo usuario en el sistema validando correo y contraseña.
+            </summary>
+        </member>
+        <member name="M:TicketsAndMerch.Api.Controllers.UserOrderController.GetUserOrders(TicketsAndMerch.Core.QueryFilters.UserOrderQueryFilter)">
+            <summary>
+            Obtiene todas las órdenes de compras del usuario autenticado
             </summary>
         </member>
     </members>

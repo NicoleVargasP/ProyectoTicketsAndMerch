@@ -15,6 +15,6 @@ namespace TicketsAndMerch.Core.QueryFilters
         public string? Location { get; set; }
 
         [SwaggerSchema("Fecha del concierto")]
-        public DateOnly? Date { get; set; }
+        public DateTime? Date { get; set; }
     }
 }

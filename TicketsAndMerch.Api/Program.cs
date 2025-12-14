@@ -52,6 +52,9 @@ namespace TicketsAndMerch.Api
             builder.Services.AddScoped<IOrderService, OrderService>();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IBuyTicketService, BuyTicketService>();
+            builder.Services.AddScoped<IBuyMerchService, BuyMerchService>();
+            builder.Services.AddScoped<IUserOrderRepository, UserOrderRepository>();
+            builder.Services.AddScoped<IUserOrderService, UserOrderService>();
 
             builder.Services.AddControllers(options =>
             {
@@ -156,6 +159,9 @@ namespace TicketsAndMerch.Api
             builder.Services.AddValidatorsFromAssemblyContaining<UserDtoValidator>();
             builder.Services.AddValidatorsFromAssemblyContaining<GetByIdRequestValidator>();
             builder.Services.AddValidatorsFromAssemblyContaining<BuyTicketDtoValidator>();
+            builder.Services.AddValidatorsFromAssemblyContaining<BuyMerchDtoValidator>();
+            builder.Services.AddValidatorsFromAssemblyContaining<AvailableConcertQueryFilterValidator>();
+            builder.Services.AddValidatorsFromAssemblyContaining<UserOrderQueryFilterValidator>();
 
             builder.Services.AddScoped<IValidationService, ValidationService>();
             builder.Services.AddScoped<ISecurityServices, SecurityServices>();

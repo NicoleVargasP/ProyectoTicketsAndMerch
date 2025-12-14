@@ -11,5 +11,8 @@ namespace TicketsAndMerch.Core.Interfaces
         Task AddConcertAsync(Concert concert);
         Task UpdateConcertAsync(Concert concert);
         Task DeleteConcertAsync(int id);
+
+        //caso de uso
+        Task<IEnumerable<Concert>> GetAvailableConcertsAsync(AvailableConcertQueryFilter filters);
     }
 }

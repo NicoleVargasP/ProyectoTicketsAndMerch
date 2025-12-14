@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Swashbuckle.AspNetCore.Annotations;
+using System;
 using System.Collections.Generic;
 
 namespace TicketsAndMerch.Core.Entities
@@ -33,8 +34,9 @@ namespace TicketsAndMerch.Core.Entities
         /// <summary>
         /// Fecha programada del concierto.
         /// </summary>
-        /// <example>2025-12-15</example>
-        public DateOnly Date { get; set; }
+        /// <example>2025-12-21T20:30:00</example>
+
+        public DateTime Date { get; set; }
 
         /// <summary>
         /// Cantidad de tickets disponibles para el concierto.

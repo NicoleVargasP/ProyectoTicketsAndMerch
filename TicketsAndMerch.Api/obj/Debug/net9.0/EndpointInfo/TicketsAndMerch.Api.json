@@ -10,6 +10,159 @@
     "version": "v1"
   },
   "paths": {
+    "/api/BuyMerch/dto/mapper": {
+      "post": {
+        "tags": [
+          "BuyMerch"
+        ],
+        "summary": "Permite registrar una compra de merchandising.",
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuyMerchDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuyMerchDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuyMerchDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BuyMerchDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuyMerchDtoApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuyMerchDtoApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuyMerchDtoApiResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/BuyMerch/dto/dapper": {
+      "get": {
+        "tags": [
+          "BuyMerch"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/BuyMerch/dto/mapper/{id}": {
+      "get": {
+        "tags": [
+          "BuyMerch"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "BuyMerch"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/BuyTicket/dto/mapper": {
       "post": {
         "tags": [
@@ -200,7 +353,7 @@
             "schema": {
               "type": "string",
               "description": "Fecha del concierto",
-              "format": "date"
+              "format": "date-time"
             }
           },
           {
@@ -425,6 +578,78 @@
             "required": true,
             "schema": {
               "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Concert/available": {
+      "get": {
+        "tags": [
+          "Concert"
+        ],
+        "parameters": [
+          {
+            "name": "Title",
+            "in": "query",
+            "description": "Buscar por nombre del concierto",
+            "schema": {
+              "type": "string",
+              "description": "Buscar por nombre del concierto"
+            }
+          },
+          {
+            "name": "Location",
+            "in": "query",
+            "description": "Lugar del concierto",
+            "schema": {
+              "type": "string",
+              "description": "Lugar del concierto"
+            }
+          },
+          {
+            "name": "MinDate",
+            "in": "query",
+            "description": "Fecha mínima",
+            "schema": {
+              "type": "string",
+              "description": "Fecha mínima",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "MaxDate",
+            "in": "query",
+            "description": "Fecha máxima",
+            "schema": {
+              "type": "string",
+              "description": "Fecha máxima",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "description": "Cantidad de registros por pagina",
+            "schema": {
+              "type": "integer",
+              "description": "Cantidad de registros por pagina",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "description": "Numero de pagina a mostrar",
+            "schema": {
+              "type": "integer",
+              "description": "Numero de pagina a mostrar",
               "format": "int32"
             }
           }
@@ -742,7 +967,7 @@
           "Order"
         ],
         "summary": "Recupera una lista paginada de órdenes registradas según filtros.",
-        "description": "Este método convierte las entidades TicketsAndMerch.Core.Entities.Order en TicketsAndMerch.Infrastructure.DTOs.OrderDto \r\ny devuelve la información paginada con metadatos.",
+        "description": "Este método convierte las entidades Order en TicketsAndMerch.Infrastructure.DTOs.OrderDto \r\ny devuelve la información paginada con metadatos.",
         "parameters": [
           {
             "name": "UserId",
@@ -2001,6 +2226,59 @@
         }
       }
     },
+    "/api/UserOrder/user-orders": {
+      "get": {
+        "tags": [
+          "UserOrder"
+        ],
+        "summary": "Obtiene todas las órdenes de compras del usuario autenticado",
+        "parameters": [
+          {
+            "name": "OrderType",
+            "in": "query",
+            "description": "Tipo de orden (Ticket | Merch)",
+            "schema": {
+              "type": "string",
+              "description": "Tipo de orden (Ticket | Merch)"
+            }
+          },
+          {
+            "name": "Status",
+            "in": "query",
+            "description": "Estado de la orden (Pendiente, Completada, Cancelada)",
+            "schema": {
+              "type": "string",
+              "description": "Estado de la orden (Pendiente, Completada, Cancelada)"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "description": "Cantidad de registros por pagina",
+            "schema": {
+              "type": "integer",
+              "description": "Cantidad de registros por pagina",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "description": "Numero de pagina a mostrar",
+            "schema": {
+              "type": "integer",
+              "description": "Numero de pagina a mostrar",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
@@ -2043,6 +2321,55 @@
   },
   "components": {
     "schemas": {
+      "BuyMerchDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "merchId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paymentMethod": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "paymentState": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BuyMerchDtoApiResponse": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Message"
+            },
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/BuyMerchDto"
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          }
+        },
+        "additionalProperties": false
+      },
       "BuyTicketDto": {
         "type": "object",
         "properties": {
@@ -2113,7 +2440,7 @@
           },
           "date": {
             "type": "string",
-            "format": "date"
+            "format": "date-time"
           },
           "availableTickets": {
             "type": "integer",
@@ -2151,7 +2478,7 @@
           },
           "date": {
             "type": "string",
-            "format": "date"
+            "format": "date-time"
           },
           "availableTickets": {
             "type": "integer",
@@ -2335,18 +2662,18 @@
           "merch": {
             "$ref": "#/components/schemas/Merch"
           },
+          "ticket": {
+            "$ref": "#/components/schemas/Ticket"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
           "payments": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Payment"
             },
             "nullable": true
-          },
-          "ticket": {
-            "$ref": "#/components/schemas/Ticket"
-          },
-          "user": {
-            "$ref": "#/components/schemas/User"
           }
         },
         "additionalProperties": false
@@ -2819,6 +3146,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Ingrese: Bearer {token}",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

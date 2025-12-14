@@ -24,6 +24,7 @@ namespace TicketsAndMerch.Infrastructure.Repositories
         private IBaseRepository<Ticket>? _ticketRepository;
         private IBaseRepository<User>? _userRepository;
         private IBaseRepository<BuyTicket>? _buyTicketRepository;
+        private IBaseRepository<BuyMerch>? _buyMerchRepository;
         //private IBaseRepository<Security>? _securityRepository;
 
         private IUserRepository _userRepositoryExtra;
@@ -33,7 +34,10 @@ namespace TicketsAndMerch.Infrastructure.Repositories
         private IOrderRepository _orderRepositoryExtra;
         private IMerchRepository _merchRepositoryExtra;
         private IBuyTicketRepository _buyTicketRepositoryExtra;
-       // private ISecurityRepository _securityRepositoryExtra;
+        private IBuyMerchRepository _buyMerchRepositoryExtra;
+        // private ISecurityRepository _securityRepositoryExtra;
+        private IUserOrderRepository _userOrderRepositoryExtra;
+
 
         public UnitOfWork(TicketsAndMerchContext context, IDapperContext dapper)
         {
@@ -59,9 +63,11 @@ namespace TicketsAndMerch.Infrastructure.Repositories
             _userRepository ??= new BaseRepository<User>(_context);
         public IBaseRepository<BuyTicket> BuyTicketRepository =>
             _buyTicketRepository ??= new BaseRepository<BuyTicket>(_context);
-       /* public IBaseRepository<Security> SecurityRepository =>
-          _securityRepository ?? new BaseRepository<Security>(_context);*/
 
+        /* public IBaseRepository<Security> SecurityRepository =>
+           _securityRepository ?? new BaseRepository<Security>(_context);*/
+        public IBaseRepository<BuyMerch> BuyMerchRepository =>
+           _buyMerchRepository ??= new BaseRepository<BuyMerch>(_context);
 
         public IUserRepository UserRepositoryExtra =>
             _userRepositoryExtra ??= new UserRepository(_context, _dapper);
@@ -79,6 +85,11 @@ namespace TicketsAndMerch.Infrastructure.Repositories
             _buyTicketRepositoryExtra ??= new BuyTicketRepository(_context, _dapper);
         public ISecurityRepository SecurityRepositoryExtra =>
           _securityRepositoryExtra ?? new SecurityRepository(_context, _dapper);
+        public IBuyMerchRepository BuyMerchRepositoryExtra =>
+           _buyMerchRepositoryExtra ??= new BuyMerchRepository(_context, _dapper);
+
+        public IUserOrderRepository UserOrderRepositoryExtra =>
+          _userOrderRepositoryExtra ??= new UserOrderRepository(_context, _dapper);
 
 
 

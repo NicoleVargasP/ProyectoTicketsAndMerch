@@ -175,6 +175,14 @@ namespace TicketsAndMerch.Api.Controllers
             await _concertService.DeleteConcertAsync(id);
             return NoContent();
         }
+        //CASO DE USO NRO 4
+
+        [HttpGet("available")]
+        public async Task<IActionResult> GetAvailableConcertsAsync([FromQuery] AvailableConcertQueryFilter filters)
+        {
+            var concerts = await _concertService.GetAvailableConcertsAsync(filters);
+            return Ok(concerts);
+        }
 
         #endregion
     }

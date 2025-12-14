@@ -71,7 +71,7 @@ namespace TicketsAndMerch.Core.Services
             if (string.IsNullOrWhiteSpace(concert.Location))
                 throw new BussinessException("La ubicación del concierto es obligatoria.");
 
-            if (concert.Date < DateOnly.FromDateTime(DateTime.Today))
+            if (concert.Date < DateTime.Today)
                 throw new BussinessException("La fecha del concierto no puede ser anterior a hoy.");
 
             if (concert.AvailableTickets < 0)
@@ -92,5 +92,24 @@ namespace TicketsAndMerch.Core.Services
             await _unitOfWork.ConcertRepository.Delete(id);
             await _unitOfWork.SaveChangesAsync();
         }
+        public async Task<IEnumerable<Concert>> GetAvailableConcertsAsync(AvailableConcertQueryFilter filters)
+        {
+            var concerts = await _unitOfWork.ConcertRepositoryExtra.GetAvailableConcertsAsync();
+
+            if (!string.IsNullOrEmpty(filters.Title))
+                concerts = concerts.Where(x => x.Title.Contains(filters.Title, StringComparison.OrdinalIgnoreCase));
+
+            if (!string.IsNullOrEmpty(filters.Location))
+                concerts = concerts.Where(x => x.Location.Contains(filters.Location, StringComparison.OrdinalIgnoreCase));
+
+            if (filters.MinDate.HasValue)
+                concerts = concerts.Where(x => x.Date >= filters.MinDate.Value);
+
+            if (filters.MaxDate.HasValue)
+                concerts = concerts.Where(x => x.Date <= filters.MaxDate.Value);
+
+            return concerts.OrderBy(x => x.Date);
+        }
+
     }
 }

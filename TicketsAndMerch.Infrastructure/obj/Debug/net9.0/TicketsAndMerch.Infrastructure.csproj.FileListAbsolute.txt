@@ -9,10 +9,10 @@ D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infr
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrastructure\obj\Debug\net9.0\TicketsAndMerch.Infrastructure.AssemblyInfoInputs.cache
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrastructure\obj\Debug\net9.0\TicketsAndMerch.Infrastructure.AssemblyInfo.cs
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrastructure\obj\Debug\net9.0\TicketsAndMerch.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrastructure\obj\Debug\net9.0\TicketsAndMerch.Infrastructure.sourcelink.json
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrastructure\obj\Debug\net9.0\TicketsA.D55D7D84.Up2Date
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrastructure\obj\Debug\net9.0\TicketsAndMerch.Infrastructure.dll
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrastructure\obj\Debug\net9.0\refint\TicketsAndMerch.Infrastructure.dll
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrastructure\obj\Debug\net9.0\TicketsAndMerch.Infrastructure.pdb
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrastructure\obj\Debug\net9.0\TicketsAndMerch.Infrastructure.genruntimeconfig.cache
 D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrastructure\obj\Debug\net9.0\ref\TicketsAndMerch.Infrastructure.dll
-D:\Cosas de la U Nicole\Tec Web\TicketsAndMerchSolution.Api\TicketsAndMerch.Infrastructure\obj\Debug\net9.0\TicketsAndMerch.Infrastructure.sourcelink.json

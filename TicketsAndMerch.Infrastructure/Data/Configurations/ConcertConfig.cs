@@ -44,11 +44,13 @@ namespace TicketsAndMerch.Infrastructure.Data.Configurations
 
             // Tipo de dato para la fecha
             builder.Property(e => e.Date)
-                   .HasColumnType("date");
+                   .HasColumnType("datetime")
+                   .IsRequired(); ;
 
             // Número de entradas disponibles
             builder.Property(e => e.AvailableTickets)
-                   .HasColumnName("AvailableTickets");
+                   .HasColumnName("AvailableTickets")
+                   .HasDefaultValue(0);
 
             // Relación 1 (Concert) a N (Tickets)
             builder.HasMany(d => d.Tickets)
@@ -59,3 +61,4 @@ namespace TicketsAndMerch.Infrastructure.Data.Configurations
         }
     }
 }
+

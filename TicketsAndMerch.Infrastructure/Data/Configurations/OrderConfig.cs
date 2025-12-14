@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TicketsAndMerch.Core.Entities;
 
 namespace TicketsAndMerch.Infrastructure.Data.Configurations
@@ -13,14 +8,13 @@ namespace TicketsAndMerch.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Order> builder)
         {
-            // Nombre de la tabla
+            // Tabla
             builder.ToTable("Orders");
 
             // Clave primaria
             builder.HasKey(e => e.Id)
                    .HasName("PK_Orders");
 
-            // Generar automáticamente el ID
             builder.Property(e => e.Id)
                    .ValueGeneratedOnAdd();
 
@@ -28,45 +22,48 @@ namespace TicketsAndMerch.Infrastructure.Data.Configurations
             builder.Property(e => e.DateOrder)
                    .HasColumnType("datetime");
 
-            // Estado (pendiente, pagado, enviado, etc.)
+            // Estado
             builder.Property(e => e.State)
                    .IsRequired()
                    .HasMaxLength(50)
                    .IsUnicode(false);
 
-            // Detalle opcional del pedido
+            // Detalle
             builder.Property(e => e.OrderDetail)
                    .HasMaxLength(500)
                    .IsUnicode(false);
 
-            // Cantidad de artículos
+            // Cantidad de artículos y precio
             builder.Property(e => e.OrderAmount)
+                   .HasColumnType("decimal(18,2)")
                    .IsRequired();
 
-            // Precio unitario
             builder.Property(e => e.UnitPrice)
-                   .HasColumnType("decimal(10,2)");
+                   .HasColumnType("decimal(18,2)");
 
-            // Relación con User (1 usuario -> muchos pedidos)
+            // Relación con User
             builder.HasOne(d => d.User)
                    .WithMany(p => p.Orders)
                    .HasForeignKey(d => d.UserId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_Orders_Users");
 
-            // Relación con Merch (opcional)
+            // Relación con Merch
             builder.HasOne(d => d.Merch)
                    .WithMany()
                    .HasForeignKey(d => d.MerchId)
+                   .HasPrincipalKey(m => m.Id)
                    .OnDelete(DeleteBehavior.SetNull)
                    .HasConstraintName("FK_Orders_Merch");
 
-            // Relación con Ticket (opcional)
+            // Relación con Ticket
             builder.HasOne(d => d.Ticket)
                    .WithMany()
                    .HasForeignKey(d => d.TicketId)
+                   .HasPrincipalKey(t => t.Id)
                    .OnDelete(DeleteBehavior.SetNull)
                    .HasConstraintName("FK_Orders_Tickets");
+
         }
     }
 }
