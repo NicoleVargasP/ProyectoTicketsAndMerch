@@ -46,13 +46,13 @@ namespace TicketsAndMerch.Infrastructure.Mappings
             CreateMap<Security, SecurityDto>();
             CreateMap<SecurityDto, Security>();
 
-            CreateMap<Order, UserOrderDto>()
-    .ForMember(dest => dest.ItemName, opt => opt.MapFrom(src =>
-       src.Merch != null ? src.Merch.MerchName : src.Ticket.Concert.Title))
-    .ForMember(dest => dest.OrderType, opt => opt.MapFrom(src => src.MerchId != null ? "Merch" : "Ticket"))
-    .ForMember(dest => dest.PurchaseDate, opt => opt.MapFrom(src => src.DateOrder ?? DateTime.Now))
-    .ForMember(dest => dest.TotalAmount, opt => opt.MapFrom(src => src.OrderAmount ?? 0))
-    .ForMember(dest => dest.PaymentState, opt => opt.MapFrom(src => src.State ?? "Pendiente"));
+            CreateMap<UserOrder, UserOrderDto>()
+            .ForMember(dest => dest.ItemName, opt => opt.MapFrom(src => src.ItemName))
+            .ForMember(dest => dest.OrderType, opt => opt.MapFrom(src => src.OrderType))
+            .ForMember(dest => dest.PurchaseDate, opt => opt.MapFrom(src => src.PurchaseDate))
+            .ForMember(dest => dest.TotalAmount, opt => opt.MapFrom(src => src.TotalAmount))
+            .ForMember(dest => dest.PaymentState, opt => opt.MapFrom(src => src.PaymentState))
+            .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.Quantity));
 
 
 

@@ -34,25 +34,16 @@ namespace TicketsAndMerch.Api.Controllers
         [HttpGet("user-orders")]
         public async Task<IActionResult> GetUserOrders([FromQuery] UserOrderQueryFilter filters)
         {
-            // Obtener login del token
-            // Obtener login desde el claim "Login"
             var login = User.Claims.FirstOrDefault(c => c.Type == "Login")?.Value;
 
             if (string.IsNullOrEmpty(login))
                 return Unauthorized("Token inválido");
 
-            // Buscar usuario en Security
-            var security = await _securityRepository.GetLoginByCredentials(new Core.Entities.UserLogin { User = login });
-            if (security == null)
-                return NotFound("Usuario no encontrado");
-
-            // Usar Login como identificador para filtrar órdenes
-            var orders = await _userOrderService.GetUserOrdersByLoginAsync(security.Login, filters);
+           
+            var orders = await _userOrderService.GetUserOrdersByLoginAsync(login, filters);
 
             var ordersDto = _mapper.Map<IEnumerable<UserOrderDto>>(orders);
-
-            var response = new ApiResponse<IEnumerable<UserOrderDto>>(ordersDto);
-            return Ok(response);
+            return Ok(new ApiResponse<IEnumerable<UserOrderDto>>(ordersDto));
         }
     }
 }

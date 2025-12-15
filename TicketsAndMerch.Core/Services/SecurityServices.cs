@@ -24,9 +24,24 @@ namespace TicketsAndMerch.Core.Services
 
         public async Task RegisterUser(Security security)
         {
+            
             await _unitOfWork.SecurityRepositoryExtra.Add(security);
+
+            
+            var user = new User
+            {
+                UserName = security.Name,
+                Email = security.Login,         
+                Contrasenia = security.Password,
+                Rol = security.Role.ToString()
+            };
+
+            await _unitOfWork.UserRepository.Add(user);
+
+           
             await _unitOfWork.SaveChangesAsync();
         }
+
     }
 }
 
