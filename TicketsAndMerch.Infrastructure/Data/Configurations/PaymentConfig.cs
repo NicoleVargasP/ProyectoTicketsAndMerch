@@ -46,11 +46,12 @@ namespace TicketsAndMerch.Infrastructure.Data.Configurations
                    .IsUnicode(false);
 
             // Relación con Order (si existe)
-            builder.HasOne(d => d.Order)
-                   .WithMany()
-                   .HasForeignKey(d => d.OrderId)
-                   .OnDelete(DeleteBehavior.SetNull)
-                   .HasConstraintName("FK_Payments_Orders");
+            builder.HasOne(p => p.Order)
+         .WithMany(o => o.Payments)
+         .HasForeignKey(p => p.OrderId)
+         .OnDelete(DeleteBehavior.Cascade)
+         .HasConstraintName("FK_Payments_Orders");
+
         }
     }
 }

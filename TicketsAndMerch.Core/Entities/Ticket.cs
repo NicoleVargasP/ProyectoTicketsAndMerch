@@ -50,6 +50,6 @@ namespace TicketsAndMerch.Core.Entities
         /// <summary>
         /// Pedidos que incluyen este ticket.
         /// </summary>
-        public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+       
     }
 }

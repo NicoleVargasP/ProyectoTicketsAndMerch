@@ -17,5 +17,5 @@ public partial class Merch: BaseEntity
 
     public int Stock { get; set; }
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    
 }
