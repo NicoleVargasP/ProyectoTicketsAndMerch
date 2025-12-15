@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TicketsAndMerch.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ac8e3e6a5482195658a03ac26e6ab81250e733dd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad94392d572783c0d8e3b2f4127a951ee1217016")]
 [assembly: System.Reflection.AssemblyProductAttribute("TicketsAndMerch.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TicketsAndMerch.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

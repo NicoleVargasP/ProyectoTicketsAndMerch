@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
-using TicketsAndMerch.Core.CustomEntities;
+using TicketsAndMerch.Core.Entities;
 using TicketsAndMerch.Core.Interfaces;
 using TicketsAndMerch.Infrastructure.DTOs;
 using TicketsAndMerch.Core.QueryFilters;
-using TicketsAndMerch.Api.Responses;
+using TicketsAndMerch.Api.Responses; // asegúrate de tener esta clase
 
 namespace TicketsAndMerch.Api.Controllers
 {
@@ -15,30 +14,44 @@ namespace TicketsAndMerch.Api.Controllers
     public class UserOrderController : ControllerBase
     {
         private readonly IUserOrderService _userOrderService;
+        private readonly ISecurityRepository _securityRepository;
         private readonly IMapper _mapper;
 
-        public UserOrderController(IUserOrderService userOrderService, IMapper mapper)
+        public UserOrderController(
+            IUserOrderService userOrderService,
+            ISecurityRepository securityRepository,
+            IMapper mapper)
         {
             _userOrderService = userOrderService;
+            _securityRepository = securityRepository;
             _mapper = mapper;
         }
 
         /// <summary>
-        /// Obtiene todas las órdenes de compras del usuario autenticado
+        /// Obtiene todas las órdenes del usuario autenticado por login
         /// </summary>
-      //  [Authorize]
+        [Authorize]
         [HttpGet("user-orders")]
         public async Task<IActionResult> GetUserOrders([FromQuery] UserOrderQueryFilter filters)
         {
-            // Obtener id del usuario autenticado
-            var userId = int.Parse(User.Identity!.Name!); // asumir que Name tiene UserId
+            // Obtener login del token
+            // Obtener login desde el claim "Login"
+            var login = User.Claims.FirstOrDefault(c => c.Type == "Login")?.Value;
 
-            var orders = await _userOrderService.GetUserOrdersAsync(userId, filters);
+            if (string.IsNullOrEmpty(login))
+                return Unauthorized("Token inválido");
+
+            // Buscar usuario en Security
+            var security = await _securityRepository.GetLoginByCredentials(new Core.Entities.UserLogin { User = login });
+            if (security == null)
+                return NotFound("Usuario no encontrado");
+
+            // Usar Login como identificador para filtrar órdenes
+            var orders = await _userOrderService.GetUserOrdersByLoginAsync(security.Login, filters);
 
             var ordersDto = _mapper.Map<IEnumerable<UserOrderDto>>(orders);
 
             var response = new ApiResponse<IEnumerable<UserOrderDto>>(ordersDto);
-
             return Ok(response);
         }
     }

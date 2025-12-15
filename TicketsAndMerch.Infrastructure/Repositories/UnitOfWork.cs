@@ -89,7 +89,7 @@ namespace TicketsAndMerch.Infrastructure.Repositories
            _buyMerchRepositoryExtra ??= new BuyMerchRepository(_context, _dapper);
 
         public IUserOrderRepository UserOrderRepositoryExtra =>
-          _userOrderRepositoryExtra ??= new UserOrderRepository(_context, _dapper);
+          _userOrderRepositoryExtra ??= new UserOrderRepository(_dapper);
 
 
 

@@ -55,6 +55,10 @@ namespace TicketsAndMerch.Api
             builder.Services.AddScoped<IBuyMerchService, BuyMerchService>();
             builder.Services.AddScoped<IUserOrderRepository, UserOrderRepository>();
             builder.Services.AddScoped<IUserOrderService, UserOrderService>();
+            builder.Services.AddScoped<ISecurityRepository, SecurityRepository>();
+
+
+
 
             builder.Services.AddControllers(options =>
             {

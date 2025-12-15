@@ -2231,7 +2231,7 @@
         "tags": [
           "UserOrder"
         ],
-        "summary": "Obtiene todas las órdenes de compras del usuario autenticado",
+        "summary": "Obtiene todas las órdenes del usuario autenticado por login",
         "parameters": [
           {
             "name": "OrderType",

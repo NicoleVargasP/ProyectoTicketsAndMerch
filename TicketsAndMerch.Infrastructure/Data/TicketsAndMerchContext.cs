@@ -30,6 +30,8 @@ public partial class TicketsAndMerchContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
     public DbSet<BuyTicket> BuyTickets { get; set; }
+    public DbSet<BuyMerch> BuyMerchs { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -1,10 +1,13 @@
 ﻿using TicketsAndMerch.Core.CustomEntities;
 using TicketsAndMerch.Core.QueryFilters;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace TicketsAndMerch.Core.Interfaces
 {
     public interface IUserOrderRepository
     {
-        Task<IEnumerable<UserOrder>> GetUserOrdersAsync(int userId, UserOrderQueryFilter filters);
+        // Obtener órdenes por Login
+        Task<IEnumerable<UserOrder>> GetUserOrdersByLoginAsync(string login, UserOrderQueryFilter filters);
     }
 }

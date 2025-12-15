@@ -1,6 +1,8 @@
 ﻿using TicketsAndMerch.Core.CustomEntities;
 using TicketsAndMerch.Core.Interfaces;
 using TicketsAndMerch.Core.QueryFilters;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace TicketsAndMerch.Core.Services
 {
@@ -13,9 +15,9 @@ namespace TicketsAndMerch.Core.Services
             _userOrderRepository = userOrderRepository;
         }
 
-        public async Task<IEnumerable<UserOrder>> GetUserOrdersAsync(int userId, UserOrderQueryFilter filters)
+        public async Task<IEnumerable<UserOrder>> GetUserOrdersByLoginAsync(string login, UserOrderQueryFilter filters)
         {
-            return await _userOrderRepository.GetUserOrdersAsync(userId, filters);
+            return await _userOrderRepository.GetUserOrdersByLoginAsync(login, filters);
         }
     }
 }

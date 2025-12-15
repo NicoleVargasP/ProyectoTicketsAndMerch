@@ -125,7 +125,7 @@
         </member>
         <member name="M:TicketsAndMerch.Api.Controllers.UserOrderController.GetUserOrders(TicketsAndMerch.Core.QueryFilters.UserOrderQueryFilter)">
             <summary>
-            Obtiene todas las órdenes de compras del usuario autenticado
+            Obtiene todas las órdenes del usuario autenticado por login
             </summary>
         </member>
     </members>
